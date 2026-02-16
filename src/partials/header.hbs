@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>haha</title>
+    <meta name="description" content="Site Açıklama Yazısı">
+    <meta name="keywords" content="vite starter, static site, coding">
+    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Vite Starter" />
+    <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="{{resolve-from-root "/style/app.css"}}">
+<!--    <link rel="stylesheet" href="{{resolve-from-root "/style/style.css"}}">-->
+    <script type="module" src="{{resolve-from-root "/script/script.js"}}"></script>
+    <script>
+        /* to prevent Firefox FOUC, this must be here */
+        let FF_FOUC_FIX;
+    </script>
+    <script>
+        let domReady = (cb) => { document.readyState === 'interactive' || document.readyState === 'complete' ? cb() : document.addEventListener('DOMContentLoaded', cb);};
+        domReady(() => { document.body.style.visibility = 'visible'; });
+    </script>
+</head>
+<body style="visibility: hidden">
+<script>0</script>
+    <header></header>

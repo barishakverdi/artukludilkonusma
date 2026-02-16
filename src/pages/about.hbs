@@ -1,0 +1,33 @@
+{{> partials/header.hbs }}
+
+<script>
+    const content = [
+        {
+            title: "Accordion 1",
+            description: "description bla bla bla",
+        },
+        {
+            title: "Accordion 2",
+            description: "description bla bla bla",
+        },
+        {
+            title: "Accordion 3",
+            description: "description bla bla bla",
+        },
+    ];
+</script>
+<section>
+    <div x-data="{ activeIndex: -1 }">
+        <template x-for="(item, i) in content" :key="i">
+            <div>
+                <div
+                    @click="activeIndex = (activeIndex === i) ? -1 : i;"
+                    class="cursor-pointer rounded-sm bg-red-100 px-4 py-2 text-2xl text-black"
+                    x-text="item.title"
+                ></div>
+                <div x-show="activeIndex === i" x-collapse.duration.300ms x-text="item.description"></div>
+            </div>
+        </template>
+    </div>
+</section>
+{{> partials/footer.hbs }}
