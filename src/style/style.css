@@ -19,111 +19,14 @@ html.lenis body {
     pointer-events: none;
 }
 
-/* Normal Font @font-face */
+/* =========================
+   Google Sans Flex (Variable)
+   ========================= */
 @font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-Italic.eot');
-    src: url('../../assets/font/figtree/Figtree-Italic.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-Italic.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-Italic.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-Italic.ttf') format('truetype');
-    font-weight: normal;
-    font-style: italic;
+    font-family: "Google Sans Flex";
+    src: url("../../assets/font/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.woff2") format("woff2");
+    font-weight: 100 1000;   /* wght axis */
+    font-stretch: 25% 151%;  /* wdth axis */
+    font-style: oblique -10deg 0deg; /* slnt axis */
     font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-Bold.eot');
-    src: url('../../assets/font/figtree/Figtree-Bold.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-Bold.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-Bold.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-SemiBoldItalic.eot');
-    src: url('../../assets/font/figtree/Figtree-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-SemiBoldItalic.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-SemiBoldItalic.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-SemiBoldItalic.ttf') format('truetype');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-MediumItalic.eot');
-    src: url('../../assets/font/figtree/Figtree-MediumItalic.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-MediumItalic.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-MediumItalic.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-MediumItalic.ttf') format('truetype');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-SemiBold.eot');
-    src: url('../../assets/font/figtree/Figtree-SemiBold.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-SemiBold.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-SemiBold.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-SemiBold.ttf') format('truetype');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-Medium.eot');
-    src: url('../../assets/font/figtree/Figtree-Medium.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-Medium.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-Medium.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-Medium.ttf') format('truetype');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-BoldItalic.eot');
-    src: url('../../assets/font/figtree/Figtree-BoldItalic.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-BoldItalic.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-BoldItalic.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-BoldItalic.ttf') format('truetype');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Figtree';
-    src: url('../../assets/font/figtree/Figtree-Regular.eot');
-    src: url('../../assets/font/figtree/Figtree-Regular.eot?#iefix') format('embedded-opentype'),
-    url('../../assets/font/figtree/Figtree-Regular.woff2') format('woff2'),
-    url('../../assets/font/figtree/Figtree-Regular.woff') format('woff'),
-    url('../../assets/font/figtree/Figtree-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-/* Variable Font @font-face */
-@font-face {
-    font-family: 'Overused Grotesk';
-    src: url('../../assets/font/overused-grotesk/OverusedGrotesk-VF.woff2') format('woff2 supports variations'),
-    url('../../assets/font/overused-grotesk/OverusedGrotesk-VF.woff2') format('woff2-variations'),
-    url('../../assets/font/overused-grotesk/OverusedGrotesk-VF.woff2') format('truetype-variations');
-    font-weight: 300 900;
-    font-display: swap;
-    font-style: normal;
-    ascent-override: 100%;
 }

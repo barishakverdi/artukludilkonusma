@@ -1,31 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr-TR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>haha</title>
-    <meta name="description" content="Site Açıklama Yazısı">
+    <title>Özel Arturklu Dil, Konuşma ve Ergoterapi Merkezi</title>
+    <meta name="description" content="Özel Arturklu Dil, Konuşma ve Ergoterapi Merkezi">
     <meta name="keywords" content="vite starter, static site, coding">
+    <meta name="robots" content="noindex, nofollow">
     <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Vite Starter" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
+    <meta name="theme-color" content="#ff6600">
+    <link rel="preload" href="assets/font/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{resolve-from-root "/style/app.css"}}">
 <!--    <link rel="stylesheet" href="{{resolve-from-root "/style/style.css"}}">-->
     <script type="module" src="{{resolve-from-root "/script/script.js"}}"></script>
     <script>
         /* to prevent Firefox FOUC, this must be here */
         let FF_FOUC_FIX;
-    </script>
-    <script>
         let domReady = (cb) => { document.readyState === 'interactive' || document.readyState === 'complete' ? cb() : document.addEventListener('DOMContentLoaded', cb);};
         domReady(() => { document.body.style.visibility = 'visible'; });
     </script>
 </head>
-<body style="visibility: hidden">
+<body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)]" style="visibility: hidden">
 <script>0</script>
-    <header></header>
+
+    <header class="fixed top-0 left-0 z-100 w-full h-(--headerHeight) transition-all duration-300 group-[&.scrolling-down:not(.scrolling-up)]/body:-translate-y-full">
+        <div class="size-full relative">
+            <div class="container h-full">
+               <div class="grid grid-cols-12 h-full">
+                   <div class="col-span-2 flex items-center">
+                       <a href="index.html" title="Ana sayfaya git" class="block">
+                           <img src="assets/image/logo.svg" alt="" loading="eager" width="227" height="75" class="clamp-[w,150px,227px] h-auto">
+                       </a>
+                   </div>
+                   <div class="col-span-8 flex-center">
+                       <nav>
+                           <ul class="flex">
+                               {{#each header.nav as |item|}}
+                                   <li>
+                                       <a href="{{item.url}}" class="inline-flex items-center clamp-[gap,6px,11px] clamp-[px,5px,15px]">
+                                           <span class="clamp-[text,16px,18px,1024px,1680px] font-medium text-center">{{item.title}}</span>
+                                           {{#if item.subMenu}}
+                                               <i class="icon-angle-down text-[9px] h-[9px]"></i>
+                                           {{/if}}
+                                       </a>
+                                   </li>
+                               {{/each}}
+                           </ul>
+                       </nav>
+                   </div>
+               </div>
+            </div>
+        </div>
+    </header>

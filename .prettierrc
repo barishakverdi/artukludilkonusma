@@ -11,6 +11,12 @@
       "options": {
         "parser": "angular"
       }
+    },
+    {
+      "files": ".json",
+      "options": {
+        "tabWidth": 2
+      }
     }
   ]
 }

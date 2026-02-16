@@ -1,6 +1,6 @@
 {
-  "name": "Vite Starter",
-  "short_name": "Vite Starter",
+  "name": "Özel Arturklu Dil, Konuşma ve Ergoterapi Merkezi",
+  "short_name": "Artuklu Dil Konuşma",
   "icons": [
     {
       "src": "assets/favicon/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#e0c7ff",
-  "background_color": "#e0c7ff",
+  "theme_color": "#ff6600",
+  "background_color": "#ff6600",
   "display": "standalone"
 }

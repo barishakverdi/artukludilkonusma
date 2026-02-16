@@ -10,3 +10,4 @@ Alpine.start();
 import "./components/gsap.js"
 import "./components/carousel.js"
 import "./components/fancybox.js"
+import "./components/app.js"

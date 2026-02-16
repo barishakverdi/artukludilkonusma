@@ -1,18 +1,18 @@
 import Lenis from 'lenis'
 import { gsap } from "gsap";
-import { CustomEase } from "gsap/CustomEase";
-import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+// import { CustomEase } from "gsap/CustomEase";
+// import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
+// import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+// import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { SplitText } from "gsap/SplitText";
+// import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(DrawSVGPlugin,MotionPathPlugin,ScrollTrigger,ScrollSmoother,ScrollToPlugin,SplitText,CustomEase);
+gsap.registerPlugin(ScrollTrigger,ScrollToPlugin);
 
 // Initialize Lenis
 const lenis = new Lenis({
-    duration: 1.4,
+    duration: 1.2,
     syncTouch: true,
     // easing: function(x) {
     //     return 1 - Math.cos((x * Math.PI) / 2);
