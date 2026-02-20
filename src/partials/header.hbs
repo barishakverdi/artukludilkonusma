@@ -25,12 +25,28 @@
         let domReady = (cb) => { document.readyState === 'interactive' || document.readyState === 'complete' ? cb() : document.addEventListener('DOMContentLoaded', cb);};
         domReady(() => { document.body.style.visibility = 'visible'; });
     </script>
+    <script>
+        document.addEventListener("alpine:init", () => {
+            Alpine.store('data', {
+                menuOpen: false,
+                dropdownMenuOpen: false,
+                megaMenuOpen: false,
+                activeIndex: -1,
+
+                isDesktop: window.innerWidth > 1024,
+                checkDevice() {
+                    this.isDesktop = window.innerWidth > 1024;
+                }
+            })
+        })
+    </script>
 </head>
-<body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)]" style="visibility: hidden">
+<body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)]" style="visibility: hidden"
+    x-init="$store.data.checkDevice()" @resize.window="$store.data.checkDevice()">
 <script>0</script>
 
     <header class="fixed top-0 left-0 z-100 w-full h-(--headerHeight) transition-all duration-300 group-[&.scrolling-down:not(.scrolling-up)]/body:-translate-y-full">
-        <div class="size-full relative">
+        <div class="size-full bg-[#F1F1F4] relative">
             <div class="container h-full">
                <div class="grid grid-cols-12 h-full">
                    <div class="col-span-2 flex items-center">
@@ -39,22 +55,144 @@
                        </a>
                    </div>
                    <div class="col-span-8 flex-center">
-                       <nav>
-                           <ul class="flex">
+                       <nav class="lg:h-full">
+                           <ul class="flex lg:h-full">
                                {{#each header.nav as |item|}}
-                                   <li>
-                                       <a href="{{item.url}}" class="inline-flex items-center clamp-[gap,6px,11px] clamp-[px,5px,15px]">
-                                           <span class="clamp-[text,16px,18px,1024px,1680px] font-medium text-center">{{item.title}}</span>
+                                   <li class="lg:h-full {{#if (eq item.subMenu.type "dropdown")}}relative{{/if}}"
+                                        @mouseleave="$store.data.activeIndex = -1; $store.data.dropdownMenuOpen = false; $store.data.megaMenuOpen = false;">
+                                       <a href="{{item.url}}" class="group/i lg:h-full inline-flex items-center clamp-[gap,6px,11px] clamp-[px,5px,15px]"
+                                            @mouseenter="if ($store.data.isDesktop) { $store.data.dropdownMenuOpen = true; $store.data.activeIndex = {{@index}} }">
+                                           <span class="clamp-[text,16px,18px,1024px,1680px] font-medium text-center lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/i:bg-size-full lg:group-hover/i:text-primary">{{item.title}}</span>
                                            {{#if item.subMenu}}
-                                               <i class="icon-angle-down text-[9px] h-[9px]"></i>
+                                               <i class="icon-angle-down text-[9px] h-[9px] lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/i:bg-size-full lg:group-hover/i:text-primary" :class="{ 'scale-y-[-1]': {{@index}} === $store.data.activeIndex }"></i>
                                            {{/if}}
                                        </a>
+                                       {{#if item.subMenu}}
+                                           <div class="lg:hidden size-7.5 border border-secondary/20 rounded-3 flex-center">
+                                               <i class="icon-angle-down text-[9px] h-[9px]"></i>
+                                           </div>
+                                           {{#if (eq item.subMenu.type "dropdown")}}
+                                               <div class="absolute left-1/2 top-full -translate-x-1/2 w-max">
+                                                   <div class="bg-white shadow-card rounded-2 px-5 py-3 mt-2" x-show="{{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen" x-transition.origin.top.duration.300ms>
+                                                       <ul>
+                                                           {{#each item.subMenu.items as |sub|}}
+                                                               <li>
+                                                                   <a href="{{sub.url}}" class="inline-block lg:hover:*:bg-size-full lg:hover:*:text-primary clamp-[py,5px,8px]">
+                                                                       <span class="text-[16px] leading-[1.6] text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{sub.title}}</span>
+                                                                   </a>
+                                                               </li>
+                                                           {{/each}}
+                                                       </ul>
+                                                   </div>
+                                               </div>
+                                           {{/if}}
+                                           {{#if (eq item.subMenu.type "mega")}}
+                                               <div class="absolute left-1/2 top-full -translate-x-1/2 w-full max-w-1440">
+                                                   <div class="bg-white shadow-card clamp-[rounded,16px,24px,1024px,1680px] mt-2" x-show="{{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen" x-transition.origin.top.duration.300ms>
+                                                       <div class="grid grid-cols-[1fr_var(--variable)] variable-from-240/1024 variable-to-380">
+                                                           <div>
+                                                               {{#each item.subMenu.items as |sub|}}
+                                                                   <div>
+
+                                                                   </div>
+                                                               {{/each}}
+                                                               <ul>
+                                                                   {{#each item.subMenu.items as |sub|}}
+                                                                       <li>
+                                                                           <a href="{{sub.url}}" class="inline-block lg:hover:*:bg-size-full lg:hover:*:text-primary clamp-[py,5px,8px]">
+                                                                               <span class="text-[16px] leading-[1.6] text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{sub.title}}</span>
+                                                                           </a>
+                                                                       </li>
+                                                                   {{/each}}
+                                                               </ul>
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                               </div>
+                                           {{/if}}
+                                       {{/if}}
                                    </li>
                                {{/each}}
                            </ul>
                        </nav>
                    </div>
+                   <div class="col-span-2 flex items-center justify-end">
+                       {{> partials/components/button.hbs
+                           color="primary"
+                           text="Randevu Al"
+                           icon="icon-calendar-clock"
+                           url="#appointment-form"
+                           attribute="data-fancybox"
+                       }}
+                   </div>
                </div>
             </div>
         </div>
     </header>
+
+    <div id="appointment-form" class="bg-white clamp-[rounded,16px,24px]! clamp-[p,20px,60px] w-full max-w-734!" style="display: none">
+        <div class="flex items-center justify-between gap-2 clamp-[mb,20px,50px]">
+            <h2 class="text-h3 font-medium">Randevu Al</h2>
+            {{> partials/components/close-button.hbs }}
+        </div>
+        <form action="#" method="post">
+            <div class="grid grid-cols-2 clamp-[gap,16px,24px] max-md:grid-cols-1">
+                {{> partials/components/form/input.hbs
+                    name="firstName"
+                    id="firstName"
+                    placeholder="Ad"
+                    required=true
+                }}
+                {{> partials/components/form/input.hbs
+                    name="lastName"
+                    id="lastName"
+                    placeholder="Soyad"
+                    required=true
+                }}
+                {{> partials/components/form/input.hbs
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    placeholder="Telefon"
+                    required=true
+                }}
+                {{> partials/components/form/input.hbs
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="E-Posta"
+                    required=true
+                }}
+                {{> partials/components/form/input.hbs
+                    name="appointment-date"
+                    id="appointment-date"
+                    placeholder="Randevu Tarihi"
+                    required=false
+                    class="appointment-date col-span-full"
+                    icon="icon-calendar-clock"
+                }}
+                {{> partials/components/form/textarea.hbs
+                    name="message"
+                    id="message"
+                    placeholder="Mesajınız"
+                    required=true
+                    class="col-span-full"
+                }}
+                <div class="col-span-full flex md:items-center justify-between gap-4 max-md:flex-col">
+                    {{> partials/components/form/acceptance.hbs
+                        type="checkbox"
+                        name="kvkk-acceptance"
+                        id="kvkk-acceptance"
+                        label="<button data-src='#kvkk-popup' data-fancybox>KVKK Metni’ni</button> okudum ve onaylıyorum."
+                        required=true
+                    }}
+                    {{> partials/components/button.hbs
+                        type="button"
+                        color="primary"
+                        text="Formu Gönder"
+                        icon="icon-arrow-right"
+                    }}
+                </div>
+            </div>
+        </form>
+    </div>

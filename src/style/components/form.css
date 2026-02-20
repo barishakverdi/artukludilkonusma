@@ -1,0 +1,65 @@
+.form-group {
+    @apply w-full relative overflow-hidden;
+
+    & label {
+        @apply clamp-[text,15px,17px] leading-[1.57] text-[#252935] mb-1.5
+    }
+
+    .form-control {
+        @apply w-full clamp-[h,50px,60px] clamp-[text,16px,18px] leading-tight text-dark placeholder-dark/50 clamp-[px,24px,32px] clamp-[py,12px,18px] border border-secondary/20 rounded-3 shadow-none! outline-0! ring-0! transition-colors duration-300  hover:border-primary/50 focus:border-primary;
+    }
+
+    & textarea.form-control {
+        @apply h-auto max-h-140 min-h-24;
+    }
+
+    & select.form-control {
+        @apply invalid:text-dark/50;
+    }
+
+    &:has(select:focus) {
+        .select-icon {
+            @apply text-dark scale-y-[-1]
+        }
+    }
+
+    .select-icon {
+        @apply text-[8px] h-2 text-dark/50 pointer-events-none absolute not-rtl:right-0 rtl:left-0 top-3 transition-all duration-300;
+    }
+
+    .search-icon {
+        @apply absolute clamp-[right,24px,32px] top-1/2 -translate-y-1/2 clamp-[text,18px,21px] clamp-[h,18px,21px] text-dark/50 transition-colors duration-300;
+    }
+
+    &.white {
+        &:not(:has(select)) {
+            @apply bg-[#F5F5F7]/5 border-white/5 hover:bg-white/10;
+        }
+
+        .form-control {
+            @apply text-white! placeholder-white/50!;
+        }
+
+        &:has(select) {
+            & select {
+                @apply bg-[#F5F5F7]/5 border-white/5 focus:bg-white/20 focus:border-white required:invalid:text-white/50;
+            }
+        }
+
+        &:has(select:focus) {
+            .select-icon {
+                @apply text-white;
+            }
+        }
+
+        &:has(.form-control:focus) {
+            &:not(select) {
+                @apply bg-white/20 border-white;
+            }
+
+            .search-icon {
+                @apply text-white;
+            }
+        }
+    }
+}

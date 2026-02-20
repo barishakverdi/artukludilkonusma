@@ -81,52 +81,64 @@ const moveComponentsToDist = () => ({
 });
 
 export default defineConfig({
-    plugins: [
-        vituum({
-            input: ['./src/style/*.{css,pcss,scss,sass,less,styl,stylus}', './src/script/*.{js,ts,mjs}'],
-        }),
-        tailwindcss(),
-        postcss(),
-        handlebars({
-            root: "./src",
-            helpers: {
-                'resolve-from-root': (relativePath) => path.join('/src', relativePath),
-                'uppercase': (text) => text.toUpperCase(),
-                'lowercase': (text) => text.toLowerCase(),
-                'capitalize': (text) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(),
-                'add': (a, b) => a + b,
-                'subtract': (a, b) => a - b,
-                'join': (array, separator) => Array.isArray(array) ? array.join(separator) : '',
-                'length': (value) => value.length,
-                'formatDate': (date, format) => {
-                    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                    return new Date(date).toLocaleDateString('tr-TR', options);
-                },
-                'debug': (value) => {
-                    console.log(value);
-                    return '';
-                }
-            },
-        }),
-        headFix(), moveDataToDist(), moveComponentsToDist()],
-    server: {
-        host: "0.0.0.0"
-    },
-    css: {
-        devSourcemap: true,
-    },
-    build: {
-        emptyOutDir: true,
-        modulePreload: {
-            polyfill: false,
+  plugins: [
+    vituum({
+      input: [
+        "./src/style/*.{css,pcss,scss,sass,less,styl,stylus}",
+        "./src/script/*.{js,ts,mjs}",
+      ],
+    }),
+    tailwindcss(),
+    postcss(),
+    handlebars({
+      root: "./src",
+      helpers: {
+        "resolve-from-root": (relativePath) => path.join("/src", relativePath),
+        uppercase: (text) => text.toUpperCase(),
+        lowercase: (text) => text.toLowerCase(),
+        capitalize: (text) =>
+          text.charAt(0).toUpperCase() + text.slice(1).toLowerCase(),
+        add: (a, b) => a + b,
+        subtract: (a, b) => a - b,
+        join: (array, separator) =>
+          Array.isArray(array) ? array.join(separator) : "",
+        length: (value) => value.length,
+        formatDate: (date, format) => {
+          const options = { year: "numeric", month: "long", day: "numeric" };
+          return new Date(date).toLocaleDateString("tr-TR", options);
         },
-        legalComments: "none",
-        rollupOptions: {
-            output: {
-                chunkFileNames: 'assets/script/[name].js',
-                entryFileNames: 'assets/script/[name].js',
-                assetFileNames: 'assets/style/[name][extname]',
-            },
+        debug: (value) => {
+          console.log(value);
+          return "";
         },
+        variable: (varName, varValue, options) => {
+          options.data.root[varName] = varValue;
+        },
+        eq: (a, b) => a === b,
+      },
+    }),
+    headFix(),
+    moveDataToDist(),
+    moveComponentsToDist(),
+  ],
+  server: {
+    host: "0.0.0.0",
+  },
+  css: {
+    devSourcemap: true,
+  },
+  build: {
+    emptyOutDir: true,
+    modulePreload: {
+      polyfill: false,
     },
-})
+    legalComments: "none",
+    rollupOptions: {
+      output: {
+        chunkFileNames: "assets/script/[name].js",
+        entryFileNames: "assets/script/[name].js",
+        assetFileNames: "assets/style/[name][extname]",
+      },
+    },
+  },
+});

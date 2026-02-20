@@ -1,0 +1,9 @@
+<div class="group/f flex clamp-[gap,8px,10px] {{class}}">
+   <div class="size-5 shrink-0 relative flex-center">
+      <input type="{{type}}" name="{{name}}" id="{{id}}" {{#if required}}required{{/if}} class="peer size-full shrink-0 border border-secondary/20 rounded-0.75 transition-colors duration-300 checked:border-primary! hover:border-primary/50" />
+      <span class="absolute-center size-5/12 bg-primary rounded-full pointer-events-none transition-opacity duration-300 peer-not-checked:opacity-0 group-[&.white]/f:bg-white"></span>
+   </div>
+   <label for="{{id}}" class="clamp-[text,16px,18px] leading-tight text-dark/60 [&_button]:underline [&_button]:cursor-pointer [&_button]:text-dark group-[&.white]/f:text-white/75">
+      {{{label}}}
+   </label>
+</div>

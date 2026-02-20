@@ -1,0 +1,6 @@
+<div class="form-group {{class}}">
+   {{#if label}}
+      <label for="{{id}}">{{label}}{{#if required}}*{{/if}}</label>
+   {{/if}}
+   <textarea name="{{name}}" id="{{id}}" {{#if placeholder}}placeholder="{{placeholder}}{{#if required}} *{{/if}}" {{/if}} {{#if required}}required{{/if}} rows="{{#if rows}}{{rows}}{{else}}4{{/if}}" class="real-form-control form-control">{{#if value}}{{value}}{{/if}}</textarea>
+</div>

@@ -16,4 +16,9 @@ const commonFancyboxOptions = {
 
 Fancybox.bind("[data-fancybox]", {
     ...commonFancyboxOptions,
+  closeButton: false,
+});
+Fancybox.bind("[data-video-fancybox]", {
+  ...commonFancyboxOptions,
+  groupAttr: "data-video-fancybox",
 });

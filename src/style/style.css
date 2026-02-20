@@ -1,6 +1,9 @@
 /*@import "swiper/css/bundle";*/
+@import "./components/fonts.css";
+@import "./components/form.css";
 @import "swiper/css";
 @import "@fancyapps/ui/dist/fancybox/fancybox.css";
+@import "air-datepicker/air-datepicker.css";
 
 html.lenis,
 html.lenis body {
@@ -19,14 +22,20 @@ html.lenis body {
     pointer-events: none;
 }
 
-/* =========================
-   Google Sans Flex (Variable)
-   ========================= */
-@font-face {
-    font-family: "Google Sans Flex";
-    src: url("../../assets/font/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.woff2") format("woff2");
-    font-weight: 100 1000;   /* wght axis */
-    font-stretch: 25% 151%;  /* wdth axis */
-    font-style: oblique -10deg 0deg; /* slnt axis */
-    font-display: swap;
+#air-datepicker-global-container {
+    @apply z-9999999
+}
+
+.air-datepicker {
+    --adp-day-name-color: theme(colors.primary) !important;
+    --adp-accent-color: theme(colors.primary) !important;
+    --adp-color-current-date: theme(colors.primary) !important;
+    --adp-cell-background-color-selected: theme(colors.primary) !important;
+    --adp-cell-background-color-hover: theme(colors.gray.200) !important;
+    --adp-font-family: theme(fontFamily.sans) !important;
+    --adp-border-radius: 12px !important;
+}
+
+.air-datepicker-cell.-selected-.-focus- {
+    --adp-cell-background-color-selected-hover: theme(colors.primary) !important;
 }

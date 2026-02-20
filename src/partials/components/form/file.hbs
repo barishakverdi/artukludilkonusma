@@ -1,0 +1,12 @@
+<div class="relative">
+   <input type="file" class="peer absolute inset-0 z-2 size-full cursor-pointer opacity-0" />
+   <div class="border-black/20 p-from-16 p-to-32 ease-smooth peer-hover:border-black/50 h-from-112 h-to-224 peer-focus:border-black/80 peer-focus:outline-black/5 w-full border border-dashed leading-normal outline-4 outline-transparent duration-300 flex flex-col justify-center items-stretch peer-user-invalid:!border-[#FF0000]{{ class }}">
+      <div class="gap-from-8 gap-to-16 flex items-center justify-center">
+         <span class="text-persian-red-600 text-from-14 text-to-20">Upload File</span>
+         {{> inlines/icon/chevron-bottom class="size-from-10 size-to-18 fill-black duration-250"}}
+      </div>
+      <div class="mt-from-8 mt-to-16 text-center">
+         <span class="text-black/50 text-from-14 text-to-20 line-clamp-1" data-name>PDF - JPG | Max 10MB</span>
+      </div>
+   </div>
+</div>

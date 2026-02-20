@@ -32,6 +32,8 @@
 
     --font-sans: "Google Sans Flex", sans-serif;
 
+    --shadow-card: 0 9px 11.5px -2px rgba(30, 30, 30, 0.13);
+
     --spacing: 0.0625rem;
     --spacing-0.5: 0.125rem;  /* 2px */
     --spacing-0.75: 0.1875rem;  /* 3px */
@@ -257,6 +259,14 @@
     max-width: 100%;
 }
 
+@utility underline-text {
+    @apply bg-no-repeat bg-[linear-gradient(180deg,transparent_95%,currentColor)] bg-size-[0_100%];
+}
+
+@utility bg-size-full {
+    background-size: 100% 100% !important;
+}
+
 @utility variable-from-* {
     --variable-from: --value(integer);
     --variable-min-vw: --modifier(integer);
@@ -265,6 +275,19 @@
     --variable-to: --value(integer);
     --variable-max-vw: --modifier(integer);
     --variable: clamp(calc(var(--variable-from) * var(--spacing)), round(nearest, calc(var(--variable-from) * var(--spacing) + (var(--variable-to) - var(--variable-from)) * ((100vw - (var(--variable-min-vw, var(--viewport-min)) * var(--spacing))) / (var(--variable-max-vw, var(--viewport-max)) - var(--variable-min-vw, var(--viewport-min))))), 1px), calc(var(--variable-to) * var(--spacing)));
+}
+
+@utility text-h1 {
+    @apply clamp-[text,32px,54px] leading-tight;
+}
+@utility text-h2 {
+    @apply clamp-[text,28px,44px] leading-tight;
+}
+@utility text-h3 {
+    @apply clamp-[text,24px,32px] leading-tight;
+}
+@utility text-body {
+    @apply clamp-[text,16px,18px] leading-relaxed;
 }
 
 html, body {
@@ -276,6 +299,7 @@ body {
 
 /* Reset */
 input, form, table, select, textarea, button { @apply appearance-none; }
+button { @apply cursor-pointer; }
 select::-ms-expand { @apply hidden!; }
 *, *:focus, *:focus-visible, *:hover, *:active, *::before, *::after { @apply outline-none!; }
 footer, header, nav, section, main, article { @apply block; }

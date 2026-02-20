@@ -28,6 +28,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/vite": "^4.1.18",
     "@vituum/vite-plugin-postcss": "^1.1.0",
+    "air-datepicker": "^3.6.0",
     "alpinejs": "^3.15.8",
     "gsap": "^3.14.2",
     "handlebars": "^4.7.8",
