@@ -1,0 +1,27 @@
+<section class="clamp-[pb,50px,180px]">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
+            <div class="lg:col-span-6">
+                <div class="-translate-x-(--left) w-[calc(100%+var(--left))] h-full max-lg:h-auto max-lg:aspect-video">
+                    <img src="assets/image/index/image-5.jpg" alt="" loading="lazy" width="950" height="745" class="full-cover clamp-[rounded-r,16px,24px]">
+                </div>
+            </div>
+            <div class="lg:col-span-6 clamp-[pl,0px,42px,1024px,1680px] lg:clamp-[py,24px,90px,1024px,1680px] flex flex-col clamp-[gap,20px,30px]">
+                <h2 class="text-h2 font-medium">Çocuğunuzda Bunlardan Hangilerini Gözlemliyorsunuz?</h2>
+                <div class="flex flex-wrap clamp-[gap,8px,12px] max-xs:grid max-xs:grid-cols-2">
+                    {{#each index.which as |item|}}
+                        <span class="inline-block bg-light px-5 py-2.5 rounded-6 clamp-[text,14px,16px] leading-tight text-dark text-center">{{item}}</span>
+                    {{/each}}
+                </div>
+                <p class="text-body text-text">Eğer çocuğunuzda bu belirtileri gözlemliyorsanız, bir uzmana danışma vaktiniz gelmiş olabilir.</p>
+                {{> partials/components/button.hbs
+                    color="whatsapp"
+                    text="Whatsapp"
+                    url="https://wa.me/905555555555"
+                    icon="icon-whatsapp"
+                    attribute="target=_blank"
+                }}
+            </div>
+        </div>
+    </div>
+</section>

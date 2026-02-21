@@ -1,0 +1,153 @@
+{
+  "index": {
+    "workingAreas": [
+      {
+        "title": "Dil ve Konuşma Terapisi",
+        "icon": "assets/image/index/icon-1.png",
+        "image": "assets/image/index/image-2.jpg",
+        "url": "working-areas.html",
+        "items": [
+          {
+            "title": "Gecikmiş Dil ve Konuşma",
+            "url": "working-area-detail.html"
+          },
+          { "title": "Kekemelik", "url": "working-area-detail.html" },
+          {
+            "title": "Artikülasyon Bozuklukları (Harf yutma/karıştırma)",
+            "url": "working-area-detail.html"
+          }
+        ]
+      },
+      {
+        "title": "Ergoterapi ve Duyu Bütünleme",
+        "icon": "assets/image/index/icon-2.png",
+        "image": "assets/image/index/image-3.jpg",
+        "url": "working-areas.html",
+        "items": [
+          {
+            "title": "Duyu Bütünleme Bozuklukları",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Otizm Spektrum Bozukluğu",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "İnce ve Kaba Motor Beceriler",
+            "url": "working-area-detail.html"
+          }
+        ]
+      },
+      {
+        "title": "Özel Öğrenme ve Davranışsal Destek",
+        "icon": "assets/image/index/icon-3.png",
+        "image": "assets/image/index/image-4.jpg",
+        "url": "working-areas.html",
+        "items": [
+          {
+            "title": "Özel Öğrenme Güçlüğü (Disleksi)",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Dikkat Eksikliği ve Hiperaktivite (DEHB)",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Okul Beceri Problemleri",
+            "url": "working-area-detail.html"
+          }
+        ]
+      }
+    ],
+    "which": [
+      "Yaşıtlarına Göre Geç Konuştuysa",
+      "Söyledikleri Anlaşılmıyorsa",
+      "Konuşurken Takılıyorsa",
+      "İsmine Tepki Vermiyorsa",
+      "Kalem Tutmakta Zorlanıyorsa",
+      "Seslere veya Dokulara Aşırı Tepkiliyse",
+      "Yemek Seçiyor ve Yemeği Reddediyorsa",
+      "Okuma ve Yazmada Güçlük Çekiyorsa",
+      "Dikkati Çabuk Dağılıyorsa",
+      "Ani Öfke Nöbetleri Yaşıyorsa",
+      "Arkadaşlarıyla Uyum Sağlayamıyorsa"
+    ],
+    "process": [
+      {
+        "title": "Tanışma ve Kapsamlı Değerlendirme",
+        "description": "Sürecimiz, ailenin öyküsünü dinlemekle başlar. Uzmanlarımız, çocuğunuzun gelişimsel ihtiyaçlarını belirlemek için uluslararası geçerliliği olan standart testler ve klinik gözlem yöntemleri uygular.",
+        "color": "#84ACE3"
+      },
+      {
+        "title": "Kişiye Özel Müdahale Programı",
+        "description": "Değerlendirme sonuçlarına göre çocuğunuza özel, gerçekçi hedefler içeren bir yol haritası oluşturulur. Hangi terapi yöntemlerinin uygulanacağı ve seans sıklığı bu aşamada planlanır.",
+        "color": "#DCD671"
+      },
+      {
+        "title": "Bilimsel ve Oyun Tabanlı Terapi",
+        "description": "Planlanan program, uzman terapistlerimiz eşliğinde hayata geçer. Çocuğun motivasyonunu yüksek tutan oyun tabanlı bilimsel yöntemlerle, gelişim basamaklarını tırmanması sağlanır.",
+        "color": "#EAA4E2"
+      },
+      {
+        "title": "Gelişim Takibi ve Mezuniyet",
+        "description": "Süreç boyunca düzenli gelişim raporları sunulur ve hedefler güncellenir. Çocuğumuz hedeflenen becerileri günlük hayatına tam olarak transfer ettiğinde, mezuniyet mutluluğunu birlikte yaşarız.",
+        "color": "#7FDB68"
+      }
+    ],
+    "team": [
+      {
+        "name": "Betül AYDIN",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-1.jpg"
+      },
+      {
+        "name": "Merve KURT",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-2.jpg"
+      },
+      {
+        "name": "Melihe YAZGAN",
+        "position": "Ergoterpist",
+        "image": "assets/image/index/team-3.jpg"
+      }
+    ],
+    "blog": [
+      {
+        "title": "Çocuğum Geç Konuşuyor: Ne Zaman Endişelenmeliyim?",
+        "description": "Erkek çocuk geç konuşur\" veya \"Babası da geç konuşmuştu\" cümleleri tanıdık geliyor mu? Dil gelişiminde doğru bilinen yanlışları ve erken müdahalenin çocuğunuzun geleceğini nasıl değiştirebileceğini anlattık.",
+        "image": "assets/image/index/image-8.jpg",
+        "url": "blog-detail.html"
+      },
+      {
+        "title": "Çocuğunuz Sadece \"Hareketli\" mi, Yoksa Duyusal Arayışta mı?",
+        "description": "Kıyafet etiketlerinden rahatsız olma, sese aşırı tepki verme veya sürekli dönme isteği... Bu davranışlar yaramazlık değil, bir yardım çığlığı olabilir. Duyu bütünleme bozukluğunun gündelik hayattaki gizli işaretlerini keşfedin.",
+        "image": "assets/image/index/image-9.jpg",
+        "url": "blog-detail.html"
+      },
+      {
+        "title": "Zeki Ama Okulda Başarısız: Disleksi Tembellik Değildir",
+        "description": "Çocuğunuz ödev yaparken çok zorlanıyor, harfleri karıştırıyor ama sözel zekasıyla sizi şaşırtıyor mu? Özel Öğrenme Güçlüğü (Disleksi) belirtilerini ve evde ailenin yapabileceği destekleyici çalışmaları inceleyin.",
+        "image": "assets/image/index/image-10.jpg",
+        "url": "blog-detail.html"
+      },
+      {
+        "title": "Çocuğum Geç Konuşuyor: Ne Zaman Endişelenmeliyim?",
+        "description": "Erkek çocuk geç konuşur\" veya \"Babası da geç konuşmuştu\" cümleleri tanıdık geliyor mu? Dil gelişiminde doğru bilinen yanlışları ve erken müdahalenin çocuğunuzun geleceğini nasıl değiştirebileceğini anlattık.",
+        "image": "assets/image/index/image-8.jpg",
+        "url": "blog-detail.html"
+      },
+      {
+        "title": "Çocuğunuz Sadece \"Hareketli\" mi, Yoksa Duyusal Arayışta mı?",
+        "description": "Kıyafet etiketlerinden rahatsız olma, sese aşırı tepki verme veya sürekli dönme isteği... Bu davranışlar yaramazlık değil, bir yardım çığlığı olabilir. Duyu bütünleme bozukluğunun gündelik hayattaki gizli işaretlerini keşfedin.",
+        "image": "assets/image/index/image-9.jpg",
+        "url": "blog-detail.html"
+      },
+      {
+        "title": "Zeki Ama Okulda Başarısız: Disleksi Tembellik Değildir",
+        "description": "Çocuğunuz ödev yaparken çok zorlanıyor, harfleri karıştırıyor ama sözel zekasıyla sizi şaşırtıyor mu? Özel Öğrenme Güçlüğü (Disleksi) belirtilerini ve evde ailenin yapabileceği destekleyici çalışmaları inceleyin.",
+        "image": "assets/image/index/image-10.jpg",
+        "url": "blog-detail.html"
+      }
+    ]
+  }
+}

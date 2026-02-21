@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 import postcss from "postcss";
 // import postcss from '@vituum/vite-plugin-postcss'
 import handlebars from '@vituum/vite-plugin-handlebars'
+import helpers from "handlebars-helpers";
 import fs from 'fs/promises';
 
 const headFix = () => ({
@@ -37,6 +38,30 @@ const moveDataToDist = () => ({
     },
 })
 
+const copyEntry = async (src, dest) => {
+  const stats = await fs.stat(src);
+  if (stats.isDirectory()) {
+    await fs.mkdir(dest, { recursive: true });
+    const entries = await fs.readdir(src);
+    for (const entry of entries) {
+      const srcPath = path.join(src, entry);
+      const destPath = path.join(dest, entry);
+      await copyEntry(srcPath, destPath);
+    }
+    return;
+  }
+
+  const finalDest = dest.endsWith('.hbs') ? dest.replace(/\.hbs$/, '.html') : dest;
+  await fs.copyFile(src, finalDest);
+
+  if (finalDest.endsWith('.html')) {
+    let content = await fs.readFile(finalDest, 'utf8');
+    content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/src\/style\/([^"']+)["']>/g, '<link rel="stylesheet" href="assets/style/$1">');
+    content = content.replace(/@import\s+url\(["']src\/style\/([^"']+)["']\)/g, '@import url("assets/style/$1")');
+    await fs.writeFile(finalDest, content, 'utf8');
+  }
+};
+
 const moveComponentsToDist = () => ({
     name: "move-components-to-dist",
     closeBundle: async () => {
@@ -44,35 +69,8 @@ const moveComponentsToDist = () => ({
         const destinationDir = path.resolve(__dirname, 'dist/components');
 
         try {
-            // Kaynak dizindeki dosyaları listele
-            const files = await fs.readdir(sourceDir);
-
-            // Hedef dizini oluştur
             await fs.mkdir(destinationDir, { recursive: true });
-
-            // Her bir dosyayı hedef dizine taşı
-            for (const file of files) {
-                const sourcePath = path.join(sourceDir, file);
-                const destinationPath = path.join(destinationDir, file.replace('.hbs', '.html'));
-
-                // Dosyayı kopyala
-                await fs.copyFile(sourcePath, destinationPath);
-
-                // Eğer dosya bir HTML dosyasıysa, düzenle
-                if (destinationPath.endsWith('.html')) {
-                    let content = await fs.readFile(destinationPath, 'utf8');
-
-                    // <link> href yollarını düzenle
-                    content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/src\/style\/([^"']+)["']>/g, '<link rel="stylesheet" href="assets/style/$1">');
-
-                    // <style> @import ifadelerini düzenle
-                    content = content.replace(/@import\s+url\(["']src\/style\/([^"']+)["']\)/g, '@import url("assets/style/$1")');
-
-                    // Dosyayı tekrar yaz
-                    await fs.writeFile(destinationPath, content, 'utf8');
-                }
-            }
-
+            await copyEntry(sourceDir, destinationDir);
             console.log('Tüm dosyalar başarıyla taşındı ve düzenlendi!');
         } catch (error) {
             console.error('Dosyalar taşınırken bir hata oluştu:', error);
@@ -93,6 +91,8 @@ export default defineConfig({
     handlebars({
       root: "./src",
       helpers: {
+        ...helpers(), // ✅ önce paket
+
         "resolve-from-root": (relativePath) => path.join("/src", relativePath),
         uppercase: (text) => text.toUpperCase(),
         lowercase: (text) => text.toLowerCase(),
@@ -103,10 +103,12 @@ export default defineConfig({
         join: (array, separator) =>
           Array.isArray(array) ? array.join(separator) : "",
         length: (value) => value.length,
-        formatDate: (date, format) => {
-          const options = { year: "numeric", month: "long", day: "numeric" };
-          return new Date(date).toLocaleDateString("tr-TR", options);
-        },
+        formatDate: (date) =>
+          new Date(date).toLocaleDateString("tr-TR", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }),
         debug: (value) => {
           console.log(value);
           return "";
@@ -114,7 +116,17 @@ export default defineConfig({
         variable: (varName, varValue, options) => {
           options.data.root[varName] = varValue;
         },
-        eq: (a, b) => a === b,
+        times: function (n, options) {
+          const num = Number(n);
+          if (!Number.isFinite(num) || num < 0) return "";
+          let out = "";
+          for (let i = 0; i < num; i++) out += options.fn(i);
+          return out;
+        },
+
+        // ✅ en sonda seninkiler (override garanti)
+        array: (...args) => args.slice(0, -1),
+        object: (options) => options.hash,
       },
     }),
     headFix(),

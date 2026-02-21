@@ -1,0 +1,12 @@
+<div class="group/f bg-white/50 border border-dark/10 rounded-4 clamp-[px,20px,32px]! transition-all duration-300 lg:hover:border-dark" :class="{ 'bg-white! border-primary! *:first:clamp-[py,24px,32px]! toggle': activeIndex === {{@index}} }">
+    <div class="flex items-center justify-between gap-2 cursor-pointer clamp-[py,18px,24px]! transition-all duration-300"
+        @click="activeIndex = activeIndex === {{@index}} ? -1 : {{@index}}">
+        <h3 class="clamp-[text,18px,24px] font-medium text-dark">{{item}}</h3>
+        <i class="icon-angle-down text-[12px] h-3 transition-all duration-300" :class="{ 'scale-y-[-1]': activeIndex === {{@index}} }"></i>
+    </div>
+    <div class="grid transition-all duration-300" :class="activeIndex === {{@index}} ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'">
+        <div class="overflow-hidden">
+            <p class="text-body text-text transition-all duration-300 group-[&.toggle]/f:clamp-[mb,24px,32px]">Lorem ipsum dolor sit amet consectetur. Diam senectus pharetra fringilla morbi lectus phasellus augue vulputate. Eget ultricies porta netus mauris. Accumsan purus porttitor semper ullamcorper tortor dolor. Pretium mattis tempor mi urna consectetur euismod diam condimentum.</p>
+        </div>
+    </div>
+</div>

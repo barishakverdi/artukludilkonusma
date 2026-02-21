@@ -1,0 +1,26 @@
+<section class="clamp-[py,50px,180px] overflow-hidden">
+    <div class="container">
+        <div class="flex items-center justify-between gap-4 clamp-[mb,24px,54px] py-2">
+            <h2 class="text-h2 font-medium text-dark">Blog</h2>
+            <div class="flex clamp-[gap,8px,12px]">
+                {{> partials/components/nav-button.hbs
+                    el="blog-prev"
+                    icon="icon-arrow-left"
+                }}
+                {{> partials/components/nav-button.hbs
+                    el="blog-next"
+                    icon="icon-arrow-right"
+                }}
+            </div>
+        </div>
+        <div class="blog-slider">
+            <div class="swiper-wrapper">
+                {{#each index.blog as |item|}}
+                    <div class="swiper-slide h-auto! self-stretch *:h-full">
+                        {{> partials/components/blog-card.hbs item=item }}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</section>

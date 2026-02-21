@@ -1,45 +1,49 @@
 {{#if (eq color "primary")}}
-    {{variable "buttonClass" "bg-primary border-transparent lg:hover:bg-secondary lg:hover:shadow-lg"}}
+    {{variable "buttonClass" "bg-primary border border-transparent lg:hover:bg-secondary lg:hover:shadow-lg"}}
     {{variable "textClass" "text-white"}}
     {{variable "iconClass" "text-white"}}
 {{else if (eq color "secondary")}}
-    {{variable "buttonClass" "bg-secondary border-transparent lg:hover:bg-primary lg:hover:shadow-lg"}}
+    {{variable "buttonClass" "bg-secondary border border-transparent lg:hover:bg-primary lg:hover:shadow-lg"}}
     {{variable "textClass" "text-white"}}
     {{variable "iconClass" "text-white"}}
+{{else if (eq color "white")}}
+    {{variable "buttonClass" "bg-white border border-transparent lg:hover:bg-primary lg:hover:shadow-lg"}}
+    {{variable "textClass" "text-dark lg:group-hover/btn:text-white"}}
+    {{variable "iconClass" "text-dark lg:group-hover/btn:text-white"}}
 {{else if (eq color "primary-border")}}
-    {{variable "buttonClass" "border-primary lg:hover:bg-primary lg:hover:shadow-lg"}}
+    {{variable "buttonClass" "border border-primary lg:hover:bg-primary lg:hover:shadow-lg"}}
     {{variable "textClass" "text-primary lg:group-hover/btn:text-white"}}
     {{variable "iconClass" "text-primary lg:group-hover/btn:text-white"}}
 {{else if (eq color "secondary-border")}}
-    {{variable "buttonClass" "border-secondary lg:hover:bg-secondary lg:hover:shadow-lg"}}
-    {{variable "textClass" "text-secondary lg:group-hover/btn:text-white"}}
-    {{variable "iconClass" "text-secondary lg:group-hover/btn:text-white"}}
+    {{variable "buttonClass" "border border-secondary lg:hover:bg-secondary lg:hover:shadow-lg"}}
+    {{variable "textClass" "text-dark lg:group-hover/btn:text-white"}}
+    {{variable "iconClass" "text-dark lg:group-hover/btn:text-white"}}
 {{else if (eq color "whatsapp")}}
-    {{variable "buttonClass" "bg-[#25D366] border-transparent lg:hover:bg-[#1DA851] "}}
-    {{variable "textClass" "text-white"}}
-    {{variable "iconClass" "text-white"}}
+    {{variable "buttonClass" "bg-[#25D366] border border-transparent lg:hover:bg-[#1DA851] "}}
+    {{variable "textClass" "text-dark lg:group-hover/btn:text-white"}}
+    {{variable "iconClass" "text-dark lg:group-hover/btn:text-white"}}
 {{else}}
 {{/if}}
 <!--Button Component-->
 {{#if (eq type "button")}}
-    <button type="{{#if buttonType}}{{buttonType}}{{else}}submit{{/if}}" title="{{text}}" {{{attribute}}} class="group/btn h-fit inline-flex items-center justify-between gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}}">
-        <span class="clamp-[text,16px,18px] leading-tight font-medium {{@root.textClass}}">{{text}}</span>
+    <button type="{{#if buttonType}}{{buttonType}}{{else}}submit{{/if}}" title="{{text}}" {{{attribute}}} class="group/btn size-fit inline-flex items-center justify-center gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}} {{class}}">
+        <span class="clamp-[text,16px,18px] leading-tight font-medium whitespace-nowrap lg:transition-all lg:duration-300 {{@root.textClass}}">{{text}}</span>
         {{#if icon}}
-            <i class="{{icon}} clamp-[text,16px,18px] {{@root.iconClass}}"></i>
+            <i class="{{icon}} clamp-[text,16px,18px] lg:transition-all lg:duration-300 {{@root.iconClass}}"></i>
         {{/if}}
     </button>
 {{else if (eq type "div")}}
-    <div title="{{text}}" {{{attribute}}} class="group/btn h-fit inline-flex items-center gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full cursor-pointer lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}}">
-        <span class="clamp-[text,16px,18px] leading-tight font-medium {{@root.textClass}}">{{text}}</span>
+    <div title="{{text}}" {{{attribute}}} class="group/btn size-fit inline-flex items-center justify-center gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full cursor-pointer lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}} {{class}}">
+        <span class="clamp-[text,16px,18px] leading-tight font-medium whitespace-nowrap lg:transition-all lg:duration-300 {{@root.textClass}}">{{text}}</span>
         {{#if icon}}
-            <i class="{{icon}} clamp-[text,16px,18px] {{@root.iconClass}}"></i>
+            <i class="{{icon}} clamp-[text,16px,18px] lg:transition-all lg:duration-300 {{@root.iconClass}}"></i>
         {{/if}}
     </div>
 {{else}}
-    <a href="{{url}}" title="{{text}}" {{{attribute}}} class="group/btn h-fit inline-flex items-center gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}}">
-        <span class="clamp-[text,16px,18px] leading-tight font-medium {{@root.textClass}}">{{text}}</span>
+    <a href="{{url}}" title="{{text}}" {{{attribute}}} class="group/btn size-fit inline-flex items-center justify-center gap-2.5 clamp-[px,28px,32px] clamp-[py,12px,18px] rounded-full lg:transition-all lg:duration-300 lg:hover:shadow-lg max-xs:w-full {{@root.buttonClass}} {{class}}">
+        <span class="clamp-[text,16px,18px] leading-tight font-medium whitespace-nowrap lg:transition-all lg:duration-300 {{@root.textClass}}">{{text}}</span>
         {{#if icon}}
-            <i class="{{icon}} clamp-[text,16px,18px] {{@root.iconClass}}"></i>
+            <i class="{{icon}} clamp-[text,16px,18px] lg:transition-all lg:duration-300 {{@root.iconClass}}"></i>
         {{/if}}
     </a>
 {{/if}}

@@ -1,103 +1,382 @@
 {
-    "header": {
-        "nav": [
+  "header": {
+    "nav": [
+      {
+        "title": "Kurumsal",
+        "url": "#",
+        "subMenu": {
+          "type": "dropdown",
+          "items": [
             {
-                "title": "Kurumsal",
-                "url": "#",
-                "subMenu": {
-                    "type": "dropdown",
-                    "items": [
-                        {
-                            "title": "Hakkımızda",
-                            "url": "about-us.html"
-                        },
-                        {
-                            "title": "KVKK",
-                            "url": "template.html"
-                        },
-                        {
-                            "title": "Gizlilik Politikası",
-                            "url": "template.html"
-                        }
-                    ]
-                }
+              "title": "Hakkımızda",
+              "url": "about-us.html"
             },
             {
-                "title": "Çalışma Alanlarımız",
-                "url": "#",
-                "subMenu": {
-                    "type": "mega",
-                    "items": [
-                        [
-                            {
-                                "title": "Dil ve Konuşma Terapisi",
-                                "subItems": [
-                                    { "title": "Dil ve Konuşma Bozuklukları", "url": "working-area-detail.html" },
-                                    { "title": "Gecikmiş Dil Konuşma", "url": "working-area-detail.html" },
-                                    { "title": "Ses Bozuklukları", "url": "working-area-detail.html" },
-                                    { "title": "Dizartri ve Apraksi", "url": "working-area-detail.html" },
-                                    {
-                                        "title": "Edinilmiş Dil Bozuklukları (Afazi)",
-                                        "url": "working-area-detail.html"
-                                    },
-                                    { "title": "Artikülasyon Bozuklukları", "url": "working-area-detail.html" },
-                                    { "title": "Fonolojik Bozukluklar", "url": "working-area-detail.html" },
-                                    { "title": "Hızlı Bozuk Konuşma", "url": "working-area-detail.html" },
-                                    { "title": "Kekemelik", "url": "working-area-detail.html" },
-                                    { "title": "Gelişimsel Dil Bozukluğu", "url": "working-area-detail.html" }
-                                ]
-                            },
-                            {
-                                "title": "Özel Öğrenme ve Davranışsal Destek",
-                                "subItems": [
-                                    { "title": "Dikkat Eksikliği ve Hiperaktivite", "url": "working-area-detail.html" },
-                                    { "title": "Davranış Problemleri", "url": "working-area-detail.html" },
-                                    { "title": "Beslenme Terapisi", "url": "working-area-detail.html" },
-                                    { "title": "Oyun Terapisi", "url": "working-area-detail.html" },
-                                    { "title": "Akran Zorbalığı", "url": "working-area-detail.html" },
-                                    { "title": "Adaptasyon ve Öfke Problemleri", "url": "working-area-detail.html" },
-                                    { "title": "Okul Beceri Problemleri", "url": "working-area-detail.html" },
-                                    { "title": "Özel Öğrenme Güçlüğü (Disleksi)", "url": "working-area-detail.html" }
-                                ]
-                            },
-                            {
-                                "title": "Ergoterapi ve Duyu Bütünleme",
-                                "subItems": [
-                                    { "title": "Duyu Bütünleme Bozuklukları", "url": "working-area-detail.html" },
-                                    { "title": "Uyaran Eksikliği", "url": "working-area-detail.html" },
-                                    { "title": "Otizm Spektrum Bozukluğu", "url": "working-area-detail.html" },
-                                    { "title": "Gelişim Geriliği", "url": "working-area-detail.html" },
-                                    { "title": "Nörogelişimsel Bozukluklar", "url": "working-area-detail.html" },
-                                    { "title": "Uyku Problemleri", "url": "working-area-detail.html" },
-                                    { "title": "Kognitif Bozukluklar", "url": "working-area-detail.html" },
-                                    { "title": "İnce ve Kaba Motor Beceriler", "url": "working-area-detail.html" },
-                                    { "title": "Zihinsel Gelişim Problemleri", "url": "working-area-detail.html" }
-                                ]
-                            }
-                        ]
-                    ]
-                }
+              "title": "KVKK",
+              "url": "template.html"
             },
             {
-                "title": "Uzmanlarımız",
-                "url": "team.html"
-            },
-            {
-                "title": "Galeri",
-                "url": "gallery.html"
-            },
-            {
-                "title": "Blog",
-                "url": "blog.html"
-            },
-            {
-                "title": "SSS",
-                "url": "faq.html"
-            },
-            {
-                "title": "İletişim",
-                "url": "contact.html"
+              "title": "Gizlilik Politikası",
+              "url": "template.html"
             }
-        ]
+          ]
+        }
+      },
+      {
+        "title": "Çalışma Alanlarımız",
+        "url": "working-areas.html",
+        "subMenu": {
+          "type": "mega",
+          "items": [
+            {
+              "title": "Dil ve Konuşma Terapisi",
+              "subItems": [
+                {
+                  "title": "Dil ve Konuşma Bozuklukları",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Gecikmiş Dil Konuşma",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Ses Bozuklukları",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Dizartri ve Apraksi",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Edinilmiş Dil Bozuklukları (Afazi)",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Artikülasyon Bozuklukları",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Fonolojik Bozukluklar",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Hızlı Bozuk Konuşma",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Kekemelik",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Gelişimsel Dil Bozukluğu",
+                  "url": "working-area-detail.html"
+                }
+              ]
+            },
+            {
+              "title": "Özel Öğrenme ve Davranışsal Destek",
+              "subItems": [
+                {
+                  "title": "Dikkat Eksikliği ve Hiperaktivite",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Davranış Problemleri",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Beslenme Terapisi",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Oyun Terapisi",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Akran Zorbalığı",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Adaptasyon ve Öfke Problemleri",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Okul Beceri Problemleri",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Özel Öğrenme Güçlüğü (Disleksi)",
+                  "url": "working-area-detail.html"
+                }
+              ]
+            },
+            {
+              "title": "Ergoterapi ve Duyu Bütünleme",
+              "subItems": [
+                {
+                  "title": "Duyu Bütünleme Bozuklukları",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Uyaran Eksikliği",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Otizm Spektrum Bozukluğu",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Gelişim Geriliği",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Nörogelişimsel Bozukluklar",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Uyku Problemleri",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Kognitif Bozukluklar",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "İnce ve Kaba Motor Beceriler",
+                  "url": "working-area-detail.html"
+                },
+                {
+                  "title": "Zihinsel Gelişim Problemleri",
+                  "url": "working-area-detail.html"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "title": "Uzmanlarımız",
+        "url": "team.html"
+      },
+      {
+        "title": "Galeri",
+        "url": "gallery.html"
+      },
+      {
+        "title": "Blog",
+        "url": "blog.html"
+      },
+      {
+        "title": "SSS",
+        "url": "faq.html"
+      },
+      {
+        "title": "İletişim",
+        "url": "contact.html"
+      }
+    ]
+  },
+  "contact": [
+    {
+      "icon": "icon-phone",
+      "value": "+90 541 466 52 39",
+      "url": "tel:+905414665239"
+    },
+    {
+      "icon": "icon-envelope",
+      "value": "info@artukludilterapi.com",
+      "url": "mailto:info@artukludilterapi.com"
+    },
+    {
+      "icon": "icon-map",
+      "value": "Konak Caddesi 2. Sokak, NO: 3, Mardin/Artuklu 47200",
+      "url": "https://www.google.com/maps?q=Konak+Caddesi+2.+Sokak,+NO:+3,+Mardin/Artuklu+47200&hl=en&z=16&output=embed",
+      "target": "_blank"
     }
+  ],
+  "socialMedia": [
+    {
+      "icon": "icon-facebook",
+      "url": "https://www.facebook.com",
+      "title": "Facebook'ta takip et"
+    },
+    {
+      "icon": "icon-instagram",
+      "url": "https://www.instagram.com",
+      "title":  "Instagram'da takip et"
+    },
+    {
+      "icon": "icon-x",
+      "url": "https://x.com",
+      "title":  "X'te takip et"
+    },
+    {
+      "icon": "icon-linkedin",
+      "url": "https://www.linkedin.com",
+      "title":  "LinkedIn'da takip et"
+    },
+    {
+      "icon": "icon-youtube",
+      "url": "https://www.youtube.com",
+      "title":  "Youtube'da takip et"
+    },
+    {
+      "icon": "icon-tiktok",
+      "url": "https://www.tiktok.com",
+      "title":  "Tiktik'ta takip et"
+    }
+  ],
+  "footer": {
+    "menu": [
+      {
+        "title": "Hakkımızda",
+        "url": "about-us.html"
+      },
+      {
+        "title": "Uzmanlarımız",
+        "url": "team.html"
+      },
+      {
+        "title": "Galeri",
+        "url": "gallery.html"
+      },
+      {
+        "title": "Blog",
+        "url": "blog.html"
+      },
+      {
+        "title": "SSS",
+        "url": "faq.html"
+      },
+      {
+        "title": "İletişim",
+        "url": "contact.html"
+      }
+    ],
+    "workingAreas": [
+      {
+        "title": "Dil ve Konuşma Terapisi",
+        "subItems": [
+          {
+            "title": "Dil ve Konuşma Bozuklukları",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Gecikmiş Dil Konuşma",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Ses Bozuklukları",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Dizartri ve Apraksi",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Edinilmiş Dil Bozuklukları (Afazi)",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Artikülasyon Bozuklukları",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Fonolojik Bozukluklar",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Hızlı Bozuk Konuşma",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Kekemelik",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Gelişimsel Dil Bozukluğu",
+            "url": "working-area-detail.html"
+          }
+        ]
+      },
+      {
+        "title": "Özel Öğrenme ve Davranışsal Destek",
+        "subItems": [
+          {
+            "title": "Dikkat Eksikliği ve Hiperaktivite",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Davranış Problemleri",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Beslenme Terapisi",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Oyun Terapisi",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Akran Zorbalığı",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Adaptasyon ve Öfke Problemleri",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Okul Beceri Problemleri",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Özel Öğrenme Güçlüğü (Disleksi)",
+            "url": "working-area-detail.html"
+          }
+        ]
+      },
+      {
+        "title": "Ergoterapi ve Duyu Bütünleme",
+        "subItems": [
+          {
+            "title": "Duyu Bütünleme Bozuklukları",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Uyaran Eksikliği",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Otizm Spektrum Bozukluğu",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Gelişim Geriliği",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Nörogelişimsel Bozukluklar",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Uyku Problemleri",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Kognitif Bozukluklar",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "İnce ve Kaba Motor Beceriler",
+            "url": "working-area-detail.html"
+          },
+          {
+            "title": "Zihinsel Gelişim Problemleri",
+            "url": "working-area-detail.html"
+          }
+        ]
+      }
+    ]
+  }
 }

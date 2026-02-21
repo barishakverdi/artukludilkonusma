@@ -1,5 +1,7 @@
-@import "./style.css";
 @import "tailwindcss";
+@import "./style.css";
+@import "./components/fonts.css";
+@import "./components/form.css";
 @layer theme, base, components, utilities;
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -153,11 +155,11 @@
 :root {
     --container: 1620px;
     --padding: 16px;
-    --left: calc((100% - var(--container)) / 2);
+    --left: calc(((100vw - var(--container)) / 2) + (var(--padding) / 2));
     --viewport-min: 768;
     --viewport-max: 1680;
 
-    @media screen and (max-width: 1620px) {
+    @media screen and (max-width: 1652px) {
         --left: var(--padding);
     }
 }
@@ -260,7 +262,7 @@
 }
 
 @utility underline-text {
-    @apply bg-no-repeat bg-[linear-gradient(180deg,transparent_95%,currentColor)] bg-size-[0_100%];
+    @apply bg-no-repeat bg-[linear-gradient(180deg,transparent_94%,currentColor)] bg-size-[0_100%];
 }
 
 @utility bg-size-full {
@@ -288,6 +290,18 @@
 }
 @utility text-body {
     @apply clamp-[text,16px,18px] leading-relaxed;
+}
+
+@layer components {
+    .text-editor {
+        @apply space-y-4;
+
+        & h1 { @apply text-h1 font-semibold text-dark; }
+        & h2 { @apply text-h2 font-medium text-dark; }
+        & h3 { @apply text-h3 font-medium text-dark; }
+        & h4, h5, h6 { @apply clamp-[text,18px,26px] font-medium text-dark; }
+        & p, li { @apply text-body text-dark; }
+    }
 }
 
 html, body {

@@ -1,0 +1,47 @@
+<section class="clamp-[pt,50px,100px] clamp-[pb,50px,180px]">
+    <div class="container">
+        <h2 class="text-h2 font-medium clamp-[mb,24px,73px]">Çalışma Alanlarımız</h2>
+        <div class="grid grid-cols-3 clamp-[gap,16px,40px] max-lg:grid-cols-2 max-lg:*:last:col-span-full max-sm:grid-cols-1">
+            {{#each index.workingAreas as |item|}}
+                <div class="group/w w-full clamp-[h,380px,600px] bg-white shadow-card rounded-4 overflow-hidden relative">
+                    <div class="absolute-full">
+                        <img src="{{item.image}}" alt="" loading="eager" width="513" height="591" class="full-cover">
+                        <div class="absolute-full bg-dark/35"></div>
+                    </div>
+                    <div class="size-full relative z-2 flex flex-col justify-between gap-4">
+                        <div class="clamp-[p,20px,30px] flex items-center clamp-[gap,10px,20px]">
+                            <img src="{{item.icon}}" alt="" loading="eager" width="44" height="44" class="clamp-[w,28px,44px,1024px,1680px] h-auto shrink-0">
+                            <h3 title="{{item.title}}">
+                                <a href="{{item.url}}" class="inline-block lg:hover:*:bg-size-full">
+                                    <span class="text-h3 font-medium text-white lg:transition-all lg:duration-450 lg:underline-text">{{item.title}}</span>
+                                </a>
+                            </h3>
+                        </div>
+                        <div class="clamp-[px,20px,40px] clamp-[py,16px,30px]">
+                            <ul>
+                                {{#each item.items as |sub|}}
+                                    <li class="flex items-center gap-2.5">
+                                        <span class="block size-1.5 bg-white rounded-full shrink-0"></span>
+                                        <a href="{{sub.url}}" class="inline-block clamp-[py,3px,5px] lg:hover:*:bg-size-full">
+                                            <span class="clamp-[text,16px,18px] leading-tight font-medium text-white lg:transition-all lg:duration-450 lg:underline-text">{{sub.title}}</span>
+                                        </a>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                            <div class="lg:grid lg:grid-rows-[0fr] transition-all duration-300 lg:group-hover/w:grid-rows-[1fr]">
+                                <div class="w-full overflow-hidden">
+                                    {{> partials/components/button.hbs
+                                        color="white"
+                                        text="Tümünü Gör"
+                                        url=item.url
+                                        class="w-full clamp-[mt,16px,30px]"
+                                    }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

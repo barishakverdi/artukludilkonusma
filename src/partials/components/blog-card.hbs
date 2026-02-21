@@ -1,0 +1,12 @@
+<div class="group/b bg-white rounded-4 overflow-hidden relative">
+    <a href="{{item.url}}" title="{{item.title}}" class="absolute-full block z-3"></a>
+    <div class="overflow-hidden">
+        <img src="{{item.image}}" alt="" loading="lazy" width="524" height="350" class="full-cover lg:transition-transform lg:duration-300 lg:group-hover/b:scale-110">
+    </div>
+    <div class="p-4">
+        <h3 class="mb-3">
+            <span class="clamp-[text,18px,24px] text-dark lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/b:bg-size-full">{{item.title}}</span>
+        </h3>
+        <p class="text-[16px] leading-relaxed text-dark/80 line-clamp-2">{{item.description}}</p>
+    </div>
+</div>

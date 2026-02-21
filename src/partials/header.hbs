@@ -41,43 +41,48 @@
         })
     </script>
 </head>
-<body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)]" style="visibility: hidden"
-    x-init="$store.data.checkDevice()" @resize.window="$store.data.checkDevice()">
+<body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)] overflow-x-hidden" style="visibility: hidden"
+    x-init="$store.data.checkDevice()" @resize.window="$store.data.checkDevice()" :class="{ 'overflow-hidden': $store.data.menuOpen }">
 <script>0</script>
 
-    <header class="fixed top-0 left-0 z-100 w-full h-(--headerHeight) transition-all duration-300 group-[&.scrolling-down:not(.scrolling-up)]/body:-translate-y-full">
+    <header class="fixed top-0 left-0 z-100 w-full h-(--headerHeight) border-b border-transparent transition-all duration-300 group-[&.scrolling-down:not(.scrolling-up)]/body:-translate-y-full group-[&.scrolling-down]/body:border-black/10">
         <div class="size-full bg-[#F1F1F4] relative">
             <div class="container h-full">
                <div class="grid grid-cols-12 h-full">
-                   <div class="col-span-2 flex items-center">
+                   <div class="col-span-2 flex items-center relative z-2 max-lg:col-span-4 max-sm:col-span-10">
                        <a href="index.html" title="Ana sayfaya git" class="block">
                            <img src="assets/image/logo.svg" alt="" loading="eager" width="227" height="75" class="clamp-[w,150px,227px] h-auto">
                        </a>
                    </div>
-                   <div class="col-span-8 flex-center">
-                       <nav class="lg:h-full">
-                           <ul class="flex lg:h-full">
+                   <div class="col-span-8 flex-center max-lg:absolute max-lg:left-0 max-lg:top-0 max-lg:w-full max-lg:overflow-hidden"
+                        x-show="$store.data.isDesktop || (!$store.data.isDesktop && $store.data.menuOpen)" x-transition.duration.300ms.opacity>
+                       <nav class="lg:h-full max-lg:w-full max-lg:overflow-hidden max-lg:bg-white max-lg:h-auto max-lg:max-h-svh">
+                           <div class="lg:hidden h-(--headerHeight)"></div>
+                           <ul class="flex lg:h-full max-lg:flex-col max-lg:h-auto max-lg:max-h-[calc(100svh-var(--headerHeight))] max-lg:overflow-y-auto max-lg:border-t max-lg:border-black/10">
                                {{#each header.nav as |item|}}
-                                   <li class="lg:h-full {{#if (eq item.subMenu.type "dropdown")}}relative{{/if}}"
-                                        @mouseleave="$store.data.activeIndex = -1; $store.data.dropdownMenuOpen = false; $store.data.megaMenuOpen = false;">
-                                       <a href="{{item.url}}" class="group/i lg:h-full inline-flex items-center clamp-[gap,6px,11px] clamp-[px,5px,15px]"
-                                            @mouseenter="if ($store.data.isDesktop) { $store.data.dropdownMenuOpen = true; $store.data.activeIndex = {{@index}} }">
+                                   <li class="lg:h-full max-lg:flex max-lg:items-center max-lg:justify-between max-lg:flex-wrap max-lg:border-b max-lg:border-black/10 {{#if (eq item.subMenu.type "dropdown")}}relative{{/if}}"
+                                        @mouseleave="if ($store.data.isDesktop) { $store.data.activeIndex = -1; $store.data.dropdownMenuOpen = false; $store.data.megaMenuOpen = false; }">
+                                       <a href="{{item.url}}" class="group/i lg:h-full inline-flex items-center clamp-[gap,6px,11px] clamp-[px,5px,15px] max-lg:w-[calc(100%-60px)] max-lg:py-1.5 max-lg:pl-4"
+                                            @mouseenter="if ($store.data.isDesktop) { $store.data.dropdownMenuOpen = true; $store.data.activeIndex = {{@index}} }"
+                                            @click="if (!$store.data.isDesktop && this.href === '#') { $store.data.activeIndex = $store.data.activeIndex === {{@index}} ? -1 : {{@index}}; }">
                                            <span class="clamp-[text,16px,18px,1024px,1680px] font-medium text-center lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/i:bg-size-full lg:group-hover/i:text-primary">{{item.title}}</span>
                                            {{#if item.subMenu}}
-                                               <i class="icon-angle-down text-[9px] h-[9px] lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/i:bg-size-full lg:group-hover/i:text-primary" :class="{ 'scale-y-[-1]': {{@index}} === $store.data.activeIndex }"></i>
+                                               <i class="icon-angle-down text-[9px] h-[9px] lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/i:bg-size-full lg:group-hover/i:text-primary max-lg:hidden!" :class="{ 'scale-y-[-1]': {{@index}} === $store.data.activeIndex }"></i>
                                            {{/if}}
                                        </a>
                                        {{#if item.subMenu}}
-                                           <div class="lg:hidden size-7.5 border border-secondary/20 rounded-3 flex-center">
-                                               <i class="icon-angle-down text-[9px] h-[9px]"></i>
+                                           <div class="lg:hidden size-7.5 border border-secondary/40 rounded-2 flex-center mr-4"
+                                                @click="$store.data.activeIndex = $store.data.activeIndex === {{@index}} ? -1 : {{@index}};">
+                                               <i class="icon-angle-down text-[9px] h-[9px] transition-transform duration-300" :class="{ 'scale-y-[-1]': $store.data.activeIndex === {{@index}} }"></i>
                                            </div>
                                            {{#if (eq item.subMenu.type "dropdown")}}
-                                               <div class="absolute left-1/2 top-full -translate-x-1/2 w-max">
-                                                   <div class="bg-white shadow-card rounded-2 px-5 py-3 mt-2" x-show="{{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen" x-transition.origin.top.duration.300ms>
-                                                       <ul>
+                                               <div class="lg:absolute lg:left-1/2 lg:top-full lg:-translate-x-1/2 lg:w-max max-lg:w-full"
+                                                    x-show="$store.data.isDesktop || (!$store.data.isDesktop && $store.data.activeIndex === {{@index}})" x-collapse.duration.300ms>
+                                                   <div class="bg-white lg:shadow-card lg:rounded-2 lg:px-5 lg:py-3 mt-2 max-lg:px-4" x-show="($store.data.isDesktop && ({{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen)) || !$store.data.isDesktop" x-transition.origin.top.duration.300ms>
+                                                       <ul class="max-lg:px-4 max-lg:border-l  max-lg:border-black/10 max-lg:w-full">
                                                            {{#each item.subMenu.items as |sub|}}
                                                                <li>
-                                                                   <a href="{{sub.url}}" class="inline-block lg:hover:*:bg-size-full lg:hover:*:text-primary clamp-[py,5px,8px]">
+                                                                   <a href="{{sub.url}}" class="inline-block lg:hover:*:bg-size-full lg:hover:*:text-primary clamp-[py,5px,8px] max-lg:w-full">
                                                                        <span class="text-[16px] leading-[1.6] text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{sub.title}}</span>
                                                                    </a>
                                                                </li>
@@ -87,25 +92,36 @@
                                                </div>
                                            {{/if}}
                                            {{#if (eq item.subMenu.type "mega")}}
-                                               <div class="absolute left-1/2 top-full -translate-x-1/2 w-full max-w-1440">
-                                                   <div class="bg-white shadow-card clamp-[rounded,16px,24px,1024px,1680px] mt-2" x-show="{{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen" x-transition.origin.top.duration.300ms>
-                                                       <div class="grid grid-cols-[1fr_var(--variable)] variable-from-240/1024 variable-to-380">
-                                                           <div>
+                                               <div class="lg:absolute lg:left-1/2 lg:top-full lg:-translate-x-1/2 w-full lg:max-w-1440 lg:px-4"
+                                                    x-show="$store.data.isDesktop || (!$store.data.isDesktop && $store.data.activeIndex === {{@index}})" x-collapse.duration.300ms>
+                                                   <div class="lg:bg-white lg:shadow-card lg:clamp-[rounded,16px,24px,1024px,1680px] lg:overflow-hidden mt-2" x-show="($store.data.isDesktop && ({{@index}} === $store.data.activeIndex && $store.data.dropdownMenuOpen)) || !$store.data.isDesktop" x-transition.origin.top.duration.300ms>
+                                                       <div class="lg:grid lg:grid-cols-[1fr_var(--variable)] variable-from-240/1024 variable-to-380 max-lg:px-4">
+                                                           <div x-data="{ activeSubMenu: -1 }" class="grid grid-cols-3 lg:clamp-[gap,24px,60px,1024px,1680px] lg:clamp-[p,24px,60px,1024px,1680px] max-lg:grid-cols-1 max-lg:border-l  max-lg:border-black/10">
                                                                {{#each item.subMenu.items as |sub|}}
-                                                                   <div>
-
+                                                                   <div class="lg:not-last:clamp-[pr,24px,60px,1024px,1680px] lg:not-last:border-r lg:not-last:border-black/10 max-lg:px-4 max-lg:py-1 max-lg:not-last:border-b max-lg:not-last:border-black/10">
+                                                                       <div class="lg:mb-2 max-lg:flex max-lg:items-center max-lg:justify-between max-lg:gap-2">
+                                                                           <p class="clamp-[text,16px,18px] leading-relaxed font-medium text-black/80 lg:mb-2">{{sub.title}}</p>
+                                                                           <div class="lg:hidden size-7.5 border border-secondary/20 rounded-3 flex-center"
+                                                                                @click="activeSubMenu = activeSubMenu === {{@index}} ? -1 : {{@index}};">
+                                                                               <i class="icon-angle-down text-[9px] h-[9px] transition-transform duration-300" :class="{ 'scale-y-[-1]': activeSubMenu === {{@index}} }"></i>
+                                                                           </div>
+                                                                           <span class="block w-51 h-0.5 bg-primary max-lg:hidden"></span>
+                                                                       </div>
+                                                                       <div x-show="$store.data.isDesktop || (!$store.data.isDesktop && activeSubMenu === {{@index}})" x-collapse.duration.300ms>
+                                                                           <ul class="max-lg:px-4 max-lg:border-l  max-lg:border-black/10 max-lg:w-full max-lg:mt-2">
+                                                                               {{#each sub.subItems as |subItem|}}
+                                                                                   <li>
+                                                                                       <a href="{{subItem.url}}" class="inline-block clamp-[py,5px,8px] lg:hover:*:bg-size-full lg:hover:*:text-primary">
+                                                                                           <span class="text-[16px] leading-relaxed text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{subItem.title}}</span>
+                                                                                       </a>
+                                                                                   </li>
+                                                                               {{/each}}
+                                                                           </ul>
+                                                                       </div>
                                                                    </div>
                                                                {{/each}}
-                                                               <ul>
-                                                                   {{#each item.subMenu.items as |sub|}}
-                                                                       <li>
-                                                                           <a href="{{sub.url}}" class="inline-block lg:hover:*:bg-size-full lg:hover:*:text-primary clamp-[py,5px,8px]">
-                                                                               <span class="text-[16px] leading-[1.6] text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{sub.title}}</span>
-                                                                           </a>
-                                                                       </li>
-                                                                   {{/each}}
-                                                               </ul>
                                                            </div>
+                                                           <img src="assets/image/header.jpg" alt="" loading="lazy" width="380" height="577" class="full-cover max-lg:hidden">
                                                        </div>
                                                    </div>
                                                </div>
@@ -113,17 +129,33 @@
                                        {{/if}}
                                    </li>
                                {{/each}}
+                               <li class="sm:hidden px-4 py-1.5 *:w-full">
+                                   {{> partials/components/button.hbs
+                                       color="primary"
+                                       text="Randevu Al"
+                                       icon="icon-calendar-clock"
+                                       url="#appointment-form"
+                                       attribute="data-fancybox"
+                                   }}
+                               </li>
                            </ul>
                        </nav>
                    </div>
-                   <div class="col-span-2 flex items-center justify-end">
+                   <div class="col-span-2 flex items-center justify-end relative z-2 max-lg:col-span-8 max-lg:gap-4 max-sm:col-span-2">
                        {{> partials/components/button.hbs
                            color="primary"
                            text="Randevu Al"
                            icon="icon-calendar-clock"
                            url="#appointment-form"
                            attribute="data-fancybox"
+                           class="max-sm:hidden"
                        }}
+                       <div class="lg:hidden flex flex-col justify-center gap-1.5 w-7.5 h-10 *:w-full *:h-0.5 *:bg-black *:transition-all *:duration-300"
+                            @click="$store.data.menuOpen = !$store.data.menuOpen">
+                           <div :class="{ 'rotate-45 translate-y-1.5': $store.data.menuOpen }"></div>
+                           <div :class="{ 'opacity-0': $store.data.menuOpen }"></div>
+                           <div :class="{ '-rotate-45 -translate-y-2.5': $store.data.menuOpen }"></div>
+                       </div>
                    </div>
                </div>
             </div>

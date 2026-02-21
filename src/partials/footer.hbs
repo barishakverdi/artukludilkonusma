@@ -1,3 +1,126 @@
-<div class="fixed-full z-2 pointer-events-none opacity-0 bg-black/15 transition-opacity duration-300" :class="{ 'opacity-100!': $store.data.activeIndex > -1 && ($store.data.dropdownMenuOpen || $store.data.megaMenuOpen) }"></div>
+{{#if cta}}
+    <div class="clamp-[px,16px,54px,1024px,1680px] clamp-[mb,30px,140px]">
+        <div class="clamp-[rounded,16px,24px] overflow-hidden lg:bg-fixed bg-cover bg-center bg-no-repeat clamp-[py,75px,166px] relative" style="background-image: url('assets/image/index/image-11.jpg')">
+            <div class="absolute-full bg-linear-to-r from-dark to-dark/0"></div>
+            <div class="container relative z-2">
+                <div class="max-w-731">
+                    <div class="flex flex-col gap-3">
+                        <h2 class="text-h2 font-medium text-white">Aklınızdaki Soru İşaretlerini Gidermeye Hazırız</h2>
+                        <p class="text-body text-white/80">Çocuğunuzun gelişimiyle ilgili endişeleriniz varsa
+                            beklemeyin. Bir telefonla uzmanlarımızdan bilgi alabilir, yol haritanızı birlikte
+                            çizebiliriz.</p>
+                        <div class="flex flex-wrap clamp-[gap,8px,20px] clamp-[mt,16px,30px]">
+                            {{> partials/components/button.hbs
+                                color="primary"
+                                text="İletişime Geç"
+                                url="contact.html"
+                                icon="icon-phone"
+                            }}
+                            {{> partials/components/button.hbs
+                                color="whatsapp"
+                                text="Whatsapp Hattı"
+                                url="https://wa.me/905555555555"
+                                icon="icon-whatsapp"
+                                attribute="target=_blank"
+                            }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{{/if}}
+<footer class="bg-white">
+    <div class="lg:bg-fixed bg-center bg-cover bg-no-repeat relative clamp-[py,45px,60px] border-y border-black/10" style="background-image: url('assets/image/abstract.jpg')">
+        <div class="absolute-full bg-text mix-blend-soft-light"></div>
+        <div class="container relative z-2">
+            <div class="flex sm:justify-center clamp-[gap,16px,24px] max-xl:flex-wrap max-sm:flex-col">
+                {{#each contact as |item|}}
+                    <a href="{{item.url}}" {{#if item.target}}target="{{item.target}}"{{/if}} class="group/c inline-flex items-center clamp-[gap,8px,16px]">
+                        <span class="clamp-[size,32px,62px] flex-center">
+                            <i class="{{item.icon}} clamp-[text,20px,32px] clamp-[h,18px,32px] text-secondary lg:transition-colors lg:duration-300 lg:group-hover/c:text-primary"></i>
+                        </span>
+                        <span>
+                            <span class="clamp-[text,18px,30px] lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/c:bg-size-full group-not-last/c:whitespace-nowrap">{{item.value}}</span>
+                        </span>
+                    </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div x-data="{ activeIndex: -1 }" class="grid grid-cols-12 gap-6 max-lg:grid-cols-1 max-lg:py-7.5">
+                <div class="lg:col-span-3 lg:border-r border-black/10 lg:clamp-[py,24px,50px] clamp-[pr,20px,32px]">
+                    <img src="assets/image/logo.svg" alt="" loading="eager" width="227" height="75" class="clamp-[w,180px,227px] h-auto clamp-[mb,16px,30px]">
+                    <p class="text-[16px] leading-relaxed text-dark/80 clamp-[mb,24px,50px]">Dil,Konuşma Bozuklukları ve Ergoterapi Alanında Uluslararası Standartlarda Hizmet Veriyoruz.</p>
+                    <ul class="flex flex-wrap clamp-[gap,8px,14px]">
+                        {{#each socialMedia as |item|}}
+                            <li>
+                                <a href="{{item.url}}" target="_blank" title="{{item.title}}" class="clamp-[size,40px,44px] bg-dark/10 border border-dark/10 rounded-full flex-center lg:transition-colors lg:duration-300 lg:hover:bg-primary lg:hover:border-primary lg:hover:*:text-white">
+                                    <i class="{{item.icon}} text-[15px] h-15 text-dark lg:transition-colors lg:duration-300"></i>
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col-span-1 max-xxl:hidden"></div>
+                <div class="lg:col-span-2 lg:clamp-[py,24px,50px]">
+                    <div class="max-lg:flex max-lg:items-center max-lg:justify-between max-lg:gap-2"
+                        @click="if (!$store.data.isDesktop) { activeIndex = activeIndex === 0 ? -1 : 0 }">
+                        <p class="clamp-[text,18px,24px] text-dark">Menü</p>
+                        <i class="icon-angle-down text-[12px] h-3 text-dark transition-transform duration-300 lg:hidden!" :class="{ 'scale-y-[-1]': activeIndex === 0 }"></i>
+                    </div>
+                    <div x-show="$store.data.isDesktop || (!$store.data.isDesktop && activeIndex === 0)" x-collapse.duration.300ms>
+                        <ul class="clamp-[mt,8px,12px]">
+                            {{#each footer.menu as |item|}}
+                                <li>
+                                    <a href="{{item.url}}" class="inline-block clamp-[py,4px,8px] lg:hover:*:bg-size-full lg:hover:*:text-black">
+                                        <span class="text-[16px] leading-relaxed text-dark/80 lg:transition-all lg:duration-300 lg:underline-text">{{item.title}}</span>
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="xxl:col-span-6 lg:clamp-[py,24px,50px] max-xxl:lg:col-span-7">
+                    <p class="clamp-[text,18px,24px] text-dark clamp-[mb,12px,20px] max-lg:mb-4">Çalışma Alanlarımız</p>
+                    <div class="grid grid-cols-3 gap-6 max-lg:grid-cols-1 max-lg:gap-3">
+                        {{#each footer.workingAreas as |item|}}
+                            <div>
+                                <div class="max-lg:flex max-lg:items-center max-lg:justify-between max-lg:gap-2"
+                                    @click="if (!$store.data.isDesktop) { activeIndex = activeIndex === {{add @index 1}} ? -1 : {{add @index 1}} }">
+                                    <p class="clamp-[text,16px,18px] leading-relaxed font-medium text-black/80 lg:mb-2">{{item.title}}</p>
+                                    <i class="icon-angle-down text-[12px] h-3 text-dark transition-transform duration-300 lg:hidden!" :class="{ 'scale-y-[-1]': activeIndex === {{add @index 1}} }"></i>
+                                    <span class="block w-51 h-0.5 bg-primary max-lg:hidden"></span>
+                                </div>
+                                <div x-show="$store.data.isDesktop || (!$store.data.isDesktop && activeIndex === {{add @index 1}})" x-collapse.duration.300ms>
+                                    <ul class="clamp-[mt,8px,12px]">
+                                        {{#each item.subItems as |subItem|}}
+                                            <li>
+                                                <a href="{{subItem.url}}" class="inline-block clamp-[py,4px,8px] lg:hover:*:bg-size-full lg:hover:*:text-black">
+                                                    <span class="text-[16px] leading-relaxed text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{subItem.title}}</span>
+                                                </a>
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-black/10">
+            <div class="container clamp-[py,16px,30px]">
+                <p class="text-[16px] leading-relaxed text-dark/80">© 2026. Tüm Hakları Saklıdır. Özel Artuklu Dil, Konuşma ve Ergoterapi Merkezi.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div class="fixed-full z-2 pointer-events-none opacity-0 bg-black/15 transition-opacity duration-300 max-lg:bg-black/25"
+     :class="{ 'opacity-100! pointer-events-auto!': ($store.data.activeIndex > -1 && ($store.data.dropdownMenuOpen || $store.data.megaMenuOpen)) || $store.data.menuOpen }"
+    @click="$store.data.menuOpen = false"></div>
 </body>
 </html>

@@ -1,6 +1,3 @@
-/*@import "swiper/css/bundle";*/
-@import "./components/fonts.css";
-@import "./components/form.css";
 @import "swiper/css";
 @import "@fancyapps/ui/dist/fancybox/fancybox.css";
 @import "air-datepicker/air-datepicker.css";
@@ -23,19 +20,19 @@ html.lenis body {
 }
 
 #air-datepicker-global-container {
-    @apply z-9999999
+    z-index: 9999999;
 }
 
 .air-datepicker {
-    --adp-day-name-color: theme(colors.primary) !important;
-    --adp-accent-color: theme(colors.primary) !important;
-    --adp-color-current-date: theme(colors.primary) !important;
-    --adp-cell-background-color-selected: theme(colors.primary) !important;
-    --adp-cell-background-color-hover: theme(colors.gray.200) !important;
-    --adp-font-family: theme(fontFamily.sans) !important;
+    --adp-day-name-color: #FF6600 !important;
+    --adp-accent-color: #FF6600 !important;
+    --adp-color-current-date: #FF6600 !important;
+    --adp-cell-background-color-selected: #FF6600 !important;
+    --adp-cell-background-color-hover: #DEE2E6 !important;
+    --adp-font-family: "Google Sans Flex" !important;
     --adp-border-radius: 12px !important;
 }
 
 .air-datepicker-cell.-selected-.-focus- {
-    --adp-cell-background-color-selected-hover: theme(colors.primary) !important;
+    --adp-cell-background-color-selected-hover: #FF6600 !important;
 }
