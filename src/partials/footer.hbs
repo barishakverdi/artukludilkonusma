@@ -119,6 +119,15 @@
     </div>
 </footer>
 
+<div class="fixed z-30 right-0 bottom-0 clamp-[pr,16px,30px] clamp-[pb,16px,30px] flex flex-col clamp-[gap,16px,24px]">
+    <a href="{{contact.0.url}}" title="{{contact.0.value}}" class="bg-primary clamp-[size,40px,54px] flex-center rounded-full shadow-[0_0_3px_4px_rgba(255,102,0,0.35)] lg:transiton-all lg:duration-300 lg:hover:bg-dark lg:hover:shadow-[0_0_3px_4px_rgba(30,30,30,0.35)]">
+        <i class="icon-phone clamp-[text,18px,24px] clamp-[h,18px,24px] text-white"></i>
+    </a>
+    <a href="https://wa.me/{{contact.0.value}}" title="Whatsapp ile iletişim kur" target="_blank" class="bg-[#25D366] clamp-[size,40px,54px] flex-center rounded-full shadow-[0_0_3px_4px_rgba(37,211,102,0.35)] lg:transiton-all lg:duration-300 lg:hover:bg-[#1DA851] lg:hover:shadow-[0_0_3px_4px_rgba(30,30,30,0.35)] lg:hover:*:text-white">
+        <i class="icon-whatsapp clamp-[text,18px,24px] clamp-[h,18px,24px] text-dark lg:transition-colors lg:duration-300"></i>
+    </a>
+</div>
+
 <div id="kvkk-popup" class="bg-white clamp-[rounded,16px,24px]! clamp-[p,20px,60px] w-full max-w-7xl! overflow-x-hidden overflow-y-auto" style="display: none">
     <div class="flex items-center justify-between gap-2 clamp-[mb,20px,50px]">
         <p class="text-h3 font-medium">KVKK Aydınlatma Metni</p>
@@ -269,7 +278,6 @@
         <p><em>Son güncelleme tarihi:</em> <strong>[gg.aa.yyyy]</strong></p>
     </article>
 </div>
-
 <div class="fixed-full z-50 pointer-events-none opacity-0 bg-black/15 transition-opacity duration-300 max-lg:bg-black/25"
      :class="{ 'opacity-100! pointer-events-auto!': ($store.data.activeIndex > -1 && ($store.data.dropdownMenuOpen || $store.data.megaMenuOpen)) || $store.data.menuOpen }"
     @click="$store.data.menuOpen = false"></div>

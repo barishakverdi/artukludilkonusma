@@ -10,6 +10,22 @@ import handlebars from '@vituum/vite-plugin-handlebars'
 import helpers from "handlebars-helpers";
 import fs from 'fs/promises';
 
+const buildVersion = Date.now().toString();
+
+const appendVersionToUrl = (url) => {
+  if (/^(https?:|\/\/|data:|mailto:|tel:|#)/i.test(url)) return url;
+  if (/[?&]v=/.test(url)) return url;
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}v=${buildVersion}`;
+};
+
+const applyVersioning = (content) => {
+  content = content.replace(/(<link[^>]+rel=["']stylesheet["'][^>]*href=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, href, suffix) => `${prefix}${appendVersionToUrl(href)}${suffix}`);
+  content = content.replace(/(<script[^>]+src=["'])([^"']+)(["'][^>]*>)/gi, (match, prefix, src, suffix) => `${prefix}${appendVersionToUrl(src)}${suffix}`);
+  content = content.replace(/(@import\s+url\(["'])([^"']+)(["']\))/gi, (match, prefix, url, suffix) => `${prefix}${appendVersionToUrl(url)}${suffix}`);
+  return content;
+};
+
 const headFix = () => ({
     name: "assets-fix",
     transformIndexHtml(html) {
@@ -20,6 +36,7 @@ const headFix = () => ({
             html = html.replace(/url=["'`](\/src\/partials\/components\/)([^"']+)\.hbs["'`]/g, 'url="components/$2.html"');
             html = html.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/src\/style\/([^"']+)["']>/g, '<link rel="stylesheet" href="../assets/style/$1">');
         }
+        html = applyVersioning(html);
         return html;
     },
 })
@@ -58,6 +75,8 @@ const copyEntry = async (src, dest) => {
     let content = await fs.readFile(finalDest, 'utf8');
     content = content.replace(/<link\s+rel=["']stylesheet["']\s+href=["']\/src\/style\/([^"']+)["']>/g, '<link rel="stylesheet" href="assets/style/$1">');
     content = content.replace(/@import\s+url\(["']src\/style\/([^"']+)["']\)/g, '@import url("assets/style/$1")');
+    content = content.replace(/<script\s+type=["']module["']\s+src=["']\/src\/script\/([^"']+)["']><\/script>/g, '<script type="module" src="assets/script/$1"></script>');
+    content = applyVersioning(content);
     await fs.writeFile(finalDest, content, 'utf8');
   }
 };
