@@ -1,4 +1,6 @@
-<div class="group/f bg-white/50 border border-dark/10 rounded-4 clamp-[px,20px,32px]! transition-all duration-300 lg:hover:border-dark" :class="{ 'bg-white! border-primary! *:first:clamp-[py,24px,32px]! toggle': activeIndex === {{@index}} }">
+<div class="group/f bg-white/50 border border-dark/10 rounded-4 clamp-[px,20px,32px]! transition-all duration-300 lg:hover:border-dark {{#if @first}}toggle{{/if}}"
+     :class="{ 'bg-white! border-primary! *:first:clamp-[py,24px,32px]! toggle': activeIndex === {{@index}} }"
+     data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 100ms);">
     <div class="flex items-center justify-between gap-2 cursor-pointer clamp-[py,18px,24px]! transition-all duration-300"
         @click="activeIndex = activeIndex === {{@index}} ? -1 : {{@index}}">
         <h3 class="clamp-[text,18px,24px] font-medium text-dark">{{item}}</h3>

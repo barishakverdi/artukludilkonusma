@@ -1,0 +1,77 @@
+{{> partials/header.hbs pageTitle="İletişim" leaflet=true }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="İletişim" url="contact.html")
+        )
+    }}
+    <section class="clamp-[mt,30px,80px] clamp-[mb,50px,125px]">
+        <div class="container">
+            <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
+                <div class="lg:col-span-5 lg:clamp-[py,32px,107px,1024px,1680px]">
+                    <h1 class="text-h1 font-semibold text-dark clamp-[mb,24px,80px]">Bize Ulaşın</h1>
+                    <ul class="flex flex-col clamp-[gap,14px,22px]">
+                        {{#each contact as |item|}}
+                            <li>
+                                <a href="{{item.url}}" {{#if item.target}}target="{{item.target}}"{{/if}} class="group/c inline-flex items-center clamp-[gap,8px,16px]">
+                                    <span class="clamp-[size,32px,62px] flex-center">
+                                        <i class="{{item.icon}} clamp-[text,20px,32px] clamp-[h,18px,32px] text-secondary lg:transition-colors lg:duration-300 lg:group-hover/c:text-primary"></i>
+                                    </span>
+                                    <span>
+                                        <span class="clamp-[text,18px,30px] lg:transition-all lg:duration-450 lg:underline-text lg:group-hover/c:bg-size-full group-not-last/c:whitespace-nowrap">{{item.value}}</span>
+                                    </span>
+                                </a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="col-span-1 max-xl:hidden"></div>
+                <div class="xl:col-span-6 max-xl:lg:col-span-7">
+                    <div class="w-[calc(100%+var(--left))] h-full border border-r-0 border-secondary/20 clamp-[rounded-l,16px,24px] overflow-hidden max-lg:h-auto max-lg:aspect-video max-sm:aspect-4/3">
+                        <div id="map" data-lat="37.32561292743793" data-lng="40.711302695907726" data-maps-link="https://maps.app.goo.gl/bGmDD4aDLBUAg1bH9" class="size-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const mapEl = document.getElementById("map");
+
+        if (mapEl && typeof L !== "undefined") {
+            const lat = mapEl.getAttribute("data-lat"),
+                lng = mapEl.getAttribute("data-lng"),
+                getDirectionText = mapEl.getAttribute("data-direction-text") || "Yol Tarifi Al",
+                mapsLink = mapEl.getAttribute("data-maps-link") || "https://maps.google.com";
+
+            const location = [lat, lng];
+
+            const customIcon = () => {
+                return L.divIcon({
+                    html: `
+                    <a href="${mapsLink}" target="_blank" class="group/m flex flex-col items-center">
+                        <i class="icon-location-dot clamp-[text,32px,58px] text-black"></i>
+                        <span class="inline-block px-6 py-3 border border-dark/10 rounded-2 bg-white/50 backdrop-blur-[2px] clamp-[text,16px,18px] leading-none font-medium text-dark text-center whitespace-nowrap">${getDirectionText}</span>
+
+                   </a>`,
+                    className: 'custom-marker size-auto!',
+                    iconSize: [60, 60]
+                })
+            }
+
+            let map = L.map('map', { zoomControl: false, scrollWheelZoom: false }).setView(location, 17);
+
+            L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+                // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+                subdomains: 'abcd',
+                maxZoom: 19
+            }).addTo(map);
+
+            L.marker(location, {icon: customIcon()}).addTo(map);
+        }
+    </script>
+    {{> partials/components/contact/form.hbs }}
+</main>
+
+{{> partials/footer.hbs cta=true }}

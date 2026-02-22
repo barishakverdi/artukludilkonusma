@@ -294,15 +294,42 @@
 
 @layer components {
     .text-editor {
-        @apply space-y-4;
+        @apply space-y-6;
 
         & h1 { @apply text-h1 font-semibold text-dark; }
         & h2 { @apply text-h2 font-medium text-dark; }
         & h3 { @apply text-h3 font-medium text-dark; }
         & h4, h5, h6 { @apply clamp-[text,18px,26px] font-medium text-dark; }
         & p, li { @apply text-body text-dark; }
+        & ul {
+            @apply list-disc list-inside space-y-2;
+            & li { @apply marker:text-primary; }
+        }
+        & strong { @apply font-semibold; }
+        .table-wrapper {
+            @apply overflow-x-auto;
+        }
+        & table {
+            @apply min-w-500;
+            & thead {
+                & th {
+                    @apply text-body text-dark font-medium text-left clamp-[px,10px,20px] py-2 bg-light first:rounded-tl-2 last:rounded-tr-2;
+                }
+            }
+            & tbody {
+                & tr {
+                    @apply odd:*:bg-white/20 even:*:bg-white/50 last:*:first:rounded-bl-2 last:*:last:rounded-br-2;
+
+                    & td {
+                        @apply text-[16px] leading-relaxed text-dark clamp-[px,10px,20px] clamp-[py,8px,12px];
+                    }
+                }
+            }
+        }
     }
 }
+
+@custom-variant not-hover (&:not(:hover));
 
 html, body {
     scrollbar-gutter: stable;
@@ -338,3 +365,8 @@ input[type="file"]::-webkit-file-upload-button { @apply cursor-pointer }
 select:required:invalid { @apply text-black/50; }
 option[value=""][disabled] { @apply hidden; }
 option { @apply text-black; }
+
+.leaflet-pane { @apply z-10!; }
+.leaflet-top, .leaflet-bottom { @apply z-20!; }
+.dg.ac { display: none !important; }
+div[inert] { @apply hidden; }

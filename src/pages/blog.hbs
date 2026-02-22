@@ -1,0 +1,76 @@
+{{> partials/header.hbs pageTitle="Blog" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Blog" url="blog.html")
+        )
+    }}
+    <section class="clamp-[mb,50px,150px]">
+        <div class="container">
+            <div class="flex lg:items-center lg:justify-between clamp-[gap,12px,30px] clamp-[my,24px,50px] max-lg:flex-col">
+                <h1 class="text-h1 font-semibold text-dark text-center"
+                    data-animation style="--translate-x: -50px; --blur: 4px;">Blog</h1>
+                <div class="flex clamp-[gap,12px,30px] max-lg:grid max-lg:grid-cols-2 max-md:grid-cols-1"
+                     data-animation style="--translate-x: 50px; --blur: 4px;">
+                    <div x-data="{ toggle: false }" class="group lg:ml-auto lg:clamp-[w,240px,320px,1024px,1680px] relative"
+                        @click.outside="toggle = false">
+                        <div class="bg-white/50 border border-secondary/20 rounded-3 clamp-[px,24px,32px] clamp-[py,12px,18px] flex items-center justify-between gap-2 cursor-pointer lg:transition-colors lg:duration-300 lg:group-hover:border-dark"
+                            @click="toggle = !toggle">
+                            <p class="text-body font-medium text-dark">Kategoriler</p>
+                            <i class="icon-angle-down text-[12px] h-3 text-dark/50"></i>
+                        </div>
+                        <div class="absolute left-0 top-full z-10 w-full">
+                            <div class="bg-white border border-secondary rounded-3 clamp-[px,24px,32px] clamp-[py,12px,18px] mt-2" style="display: none"
+                                x-show="toggle" x-transition.duration.300ms>
+                                <ul>
+                                    {{#each (array "Haberler" "Blog" "Duyurular") as |item|}}
+                                        <li>
+                                            <a href="blog.html" class="w-full inline-block clamp-[py,2px,4px] lg:hover:*:text-primary lg:hover:*:bg-size-full">
+                                                <span class="text-[16px] text-dark/80 lg:transition-all lg:duration-450 lg:underline-text">{{item}}</span>
+                                            </a>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="#" method="post">
+                        {{> partials/components/form/input.hbs
+                            type="search"
+                            name="search"
+                            id="search"
+                            placeholder="Arama Yap"
+                            class="lg:clamp-[w,240px,320px,1024px,1680px] h-full [&_input]:h-full! [&_input]:bg-white!"
+                        }}
+                    </form>
+                </div>
+            </div>
+            <div class="grid grid-cols-3 clamp-[gap,16px,24px] max-lg:grid-cols-2 max-md:grid-cols-1">
+                {{#each index.blog as |item|}}
+                    <div class="*:h-full" data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{@index}} * 50ms)">
+                        {{> partials/components/blog-card.hbs item=item }}
+                    </div>
+                {{/each}}
+            </div>
+            <div class="flex justify-center gap-2.5 clamp-[mt,30px,70px]">
+                <a href="blog.html" title="Önceki Sayfa" class="clamp-[size,38px,42px] shrink-0 border border-secondary/20 flex-center rounded-1.5 lg:transition-colors lg:duration-300 lg:hover:border-primary lg:hover:*:text-dark">
+                    <i class="icon-angle-left text-[12px] h-3 text-dark/50 lg:transition-colors lg:duration-300"></i>
+                </a>
+                <div class="flex justify-center flex-wrap gap-[5px]">
+                    {{#times 5}}
+                        <a href="blog.html" title="Önceki Sayfa" class="clamp-[size,38px,42px] shrink-0 border border-secondary/20 flex-center rounded-1.5 lg:transition-colors lg:duration-300 lg:hover:border-primary lg:hover:*:text-dark [&.active]:border-primary [&.active]:*:text-dark {{#if (eq this 0)}}active{{/if}}">
+                            <span class="clamp-[text,16px,18px] text-secondary lg:transition-colors lg:duration-300">{{add this 1}}</span>
+                        </a>
+                    {{/times}}
+                </div>
+                <a href="blog.html" title="Sonraki Sayfa" class="clamp-[size,38px,42px] shrink-0 border border-secondary/20 flex-center rounded-1.5 lg:transition-colors lg:duration-300 lg:hover:border-primary lg:hover:*:text-dark">
+                    <i class="icon-angle-right text-[12px] h-3 text-dark/50 lg:transition-colors lg:duration-300"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> partials/footer.hbs cta=true }}

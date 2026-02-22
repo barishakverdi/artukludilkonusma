@@ -4,7 +4,7 @@
    {{/if}}
     <select name="{{name}}" id="{{id}}" {{#if required}}required{{/if}} class="real-form-control form-control">
        {{#if placeholder}}
-          <option {{#if placeholderValue}}value="{{placeholderValue}}"{{/if}} {{#if placeholderSelected}}selected{{/if}}>{{placeholder}}{{#if required}}*{{/if}}</option>
+          <option value="{{#if placeholderValue}}{{placeholderValue}}{{/if}}" {{#if placeholderSelected}}selected{{/if}}>{{placeholder}}{{#if required}}*{{/if}}</option>
        {{/if}}
         {{#each options as |option|}}
             <option value="{{#if option.value}}{{option.value}}{{/if}}" {{#if option.selected}}{{#unless ../placeholderSelected}}selected{{/unless}}{{/if}}>{{option.text}}</option>

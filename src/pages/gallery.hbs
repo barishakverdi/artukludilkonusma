@@ -1,0 +1,29 @@
+{{> partials/header.hbs pageTitle="Galeri" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Galeri" url="gallery.html")
+        )
+    }}
+    <section class="clamp-[mb,50px,150px]">
+        <div class="container">
+            <h1 class="text-h1 font-semibold text-dark clamp-[my,24px,50px] text-center">Galeri</h1>
+            <div class="grid grid-cols-3 clamp-[gap,16px,24px] max-lg:grid-cols-2">
+                {{#each about-us.gallery as |item|}}
+                    <div class="group w-full aspect-525/406 relative overflow-hidden clamp-[rounded,10px,16px]"
+                         data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{@index}} * 25ms)">
+                        <a href="{{item}}" title="Özel Artuklu Dil, Konuşma ve Ergoterapi Merkezi" data-fancybox="gallery" class="absolute-full block z-3"></a>
+                        <img src="{{item}}" alt="" loading="lazy" width="525" height="406" class="full-cover">
+                        <div class="absolute-full flex-center bg-dark/35 lg:transition-opacity lg:duration-300 lg:group-not-hover:opacity-0 max-lg:hidden">
+                            <i class="icon-magnifying-glass-plus clamp-[text,24px,44px] clamp-[h,24px,44px] text-white"></i>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> partials/footer.hbs cta=true }}

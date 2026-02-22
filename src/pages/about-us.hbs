@@ -1,0 +1,16 @@
+{{> partials/header.hbs pageTitle="Hakkımızda" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Kurumsal" url="#")
+            (object text="Hakkımızda" url="about-us.html")
+        )
+    }}
+    {{> partials/components/about-us/about.hbs }}
+    {{> partials/components/index/team.hbs }}
+    {{> partials/components/about-us/gallery.hbs }}
+</main>
+
+{{> partials/footer.hbs cta=true }}

@@ -1,0 +1,30 @@
+{{> partials/header.hbs pageTitle="Dil ve Konuşma Bozuklukları" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Çalışma Alanlarımız" url="#")
+            (object text="Dil ve Konuşma Terapisi" url="working-areas.html")
+            (object text="Dil ve Konuşma Bozuklukları" url="working-area-detail.html")
+        )
+    }}
+    <section class="clamp-[mb,50px,140px]">
+        <div class="container">
+            <div>
+                <h1 class="text-h1 font-semibold text-dark clamp-[mb,24px,50px] clamp-[mt,30px,50px]">Dil ve Konuşma Bozuklukları</h1>
+                <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
+                    <div class="xxl:col-span-3 max-xxl:lg:col-span-4">
+                        {{> partials/components/working-area-detail/sidebar.hbs }}
+                    </div>
+                    <div class="col-span-1 max-xxl:hidden"></div>
+                    <div class="lg:col-span-8">
+                        {{> partials/components/working-area-detail/content.hbs }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> partials/footer.hbs cta=true }}

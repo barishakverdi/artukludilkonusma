@@ -1,0 +1,36 @@
+{
+  "team": {
+    "team": [
+      {
+        "name": "Betül AYDIN",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-1.jpg"
+      },
+      {
+        "name": "Merve KURT",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-2.jpg"
+      },
+      {
+        "name": "Melihe YAZGAN",
+        "position": "Ergoterpist",
+        "image": "assets/image/index/team-3.jpg"
+      },
+      {
+        "name": "Merve KURT",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-2.jpg"
+      },
+      {
+        "name": "Melihe YAZGAN",
+        "position": "Ergoterpist",
+        "image": "assets/image/index/team-3.jpg"
+      },
+      {
+        "name": "Betül AYDIN",
+        "position": "Dil ve Konuşma Terapisti",
+        "image": "assets/image/index/team-1.jpg"
+      }
+    ]
+  }
+}

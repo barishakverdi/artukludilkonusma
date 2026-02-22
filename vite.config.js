@@ -13,7 +13,7 @@ import fs from 'fs/promises';
 const headFix = () => ({
     name: "assets-fix",
     transformIndexHtml(html) {
-        html = html.replace(/\s+crossorigin/g, '');
+        // html = html.replace(/\s+crossorigin/g, '');
         html = html.replace(/\/assets\//g, 'assets/');
         if (process.env.NODE_ENV === 'production') {
             html = html.replace(/fetch\(['"`]\.\/src\/data\/data\.json['"`]\)/g, 'fetch("assets/data.json")');

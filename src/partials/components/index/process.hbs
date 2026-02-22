@@ -1,12 +1,13 @@
 <section class="clamp-[py,50px,180px]">
     <div class="container">
-        <div class="flex-center flex-col text-center gap-3 clamp-[mb,30px,70px] max-w-731 mx-auto">
+        <div class="flex-center flex-col text-center gap-3 clamp-[mb,30px,70px] max-w-731 mx-auto origin-top"
+             data-animation style="--translate-y: -50px; --blur: 4px; --scale: 0.95">
             <h2 class="text-h2 font-medium">Terapi Sürecimiz Nasıl İşliyor?</h2>
             <p class="text-body text-text">Her bireyin gelişim yolculuğu parmak izi kadar özeldir. Merkezimizde bilimsel veriler ışığında, aileyi de sürece dahil eden, şeffaf ve sonuç odaklı bir yol haritası izliyoruz.</p>
         </div>
         <div class="flex max-lg:grid max-lg:grid-cols-2 max-lg:gap-4 max-md:grid-cols-1">
             {{#each index.process as |item|}}
-                <div style="--color: {{item.color}}">
+                <div data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 50ms); --color: {{item.color}}">
                     <div class="bg-(--color) px-6 py-3 clamp-[rounded,16px,24px] clamp-[mb,12px,25px]">
                         <span class="clamp-[text,84px,188px] leading-none font-semibold text-white/30">{{add @index 1}}</span>
                     </div>

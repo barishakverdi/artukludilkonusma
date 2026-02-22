@@ -1,9 +1,11 @@
 <section class="clamp-[pt,50px,100px] clamp-[pb,50px,180px]">
     <div class="container">
-        <h2 class="text-h2 font-medium clamp-[mb,24px,73px]">Çalışma Alanlarımız</h2>
+        <h2 class="text-h2 font-medium clamp-[mb,24px,73px]"
+            data-animation style="--translate-y: -50px; --blur: 4px;">Çalışma Alanlarımız</h2>
         <div class="grid grid-cols-3 clamp-[gap,16px,40px] max-lg:grid-cols-2 max-lg:*:last:col-span-full max-sm:grid-cols-1">
             {{#each index.workingAreas as |item|}}
-                <div class="group/w w-full clamp-[h,380px,600px] bg-white shadow-card rounded-4 overflow-hidden relative">
+                <div class="group/w w-full clamp-[h,380px,600px] bg-white shadow-card rounded-4 overflow-hidden relative"
+                     data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{@index}} * 100ms);">
                     <div class="absolute-full">
                         <img src="{{item.image}}" alt="" loading="eager" width="513" height="591" class="full-cover">
                         <div class="absolute-full bg-dark/35"></div>

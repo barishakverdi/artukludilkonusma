@@ -3,10 +3,13 @@
         <div class="container">
             <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
                 <div class="xl:col-span-5 lg:clamp-[pt,24px,90px,1024px,1680px] max-xl:lg:col-span-6">
-                    <h2 class="text-h3 font-medium clamp-[mb,16px,24px]">Randevu Al</h2>
-                    <p class="clamp-[text,16px,24px] text-text clamp-[mb,24px,50px]">Dil,Konuşma Bozuklukları ve Ergoterapi Alanında Uluslararası Standartlarda Hizmet Veriyoruz.</p>
+                    <h2 class="text-h3 font-medium clamp-[mb,16px,24px]"
+                        data-animation style="--translate-y: -50px; --blur: 4px;">Randevu Al</h2>
+                    <p class="clamp-[text,16px,24px] text-text clamp-[mb,24px,50px]"
+                       data-animation style="--translate-y: -50px; --blur: 4px;">Dil,Konuşma Bozuklukları ve Ergoterapi Alanında Uluslararası Standartlarda Hizmet Veriyoruz.</p>
                     <form action="#" method="post">
-                        <div class="grid grid-cols-2 clamp-[gap,16px,24px] [&_.form-control]:bg-light/30 max-md:grid-cols-1">
+                        <div class="grid grid-cols-2 clamp-[gap,16px,24px] [&_.form-control]:bg-light/30 max-md:grid-cols-1"
+                             data-animation style="--translate-x: -50px; --blur: 4px;">
                             {{> partials/components/form/input.hbs
                                 name="firstName"
                                 id="firstName-index"
@@ -68,7 +71,8 @@
                 </div>
                 <div class="col-span-1 max-xl:hidden"></div>
                 <div class="lg:col-span-6">
-                    <div class="w-[calc(100%+var(--left))] h-full">
+                    <div class="w-[calc(100%+var(--left))] h-full origin-right"
+                         data-animation style="--blur: 4px; --scale: 0.95">
                         <img src="assets/image/index/image-6.jpg" alt="" loading="lazy" width="924" height="746" class="full-cover clamp-[rounded-l,16px,24px]">
                     </div>
                 </div>

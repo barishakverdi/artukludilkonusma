@@ -1,0 +1,54 @@
+{
+  "workingAreas": [
+    {
+      "title": "Dil ve Konuşma Bozuklukları",
+      "description": "İletişim, ifade etme ve anlama süreçlerinde yaşanan zorlukların genel adıdır. Bireye özgü terapi planlarıyla iletişim becerilerini destekliyoruz.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Gecikmiş Dil Konuşma",
+      "description": "Çocuğun dil gelişiminin takvim yaşına göre geriden gelmesi durumudur. Erken müdahale ile akranlarını yakalaması ve kendini ifade etmesi hedeflenir.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Ses Bozuklukları",
+      "description": "Sesin perdesinde, şiddetinde veya kalitesinde (kısıklık, çatallanma) meydana gelen sorunlardır. Sağlıklı ses üretimi ve kullanımı için ses terapisi uygulanır.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Dizartri ve Apraksi",
+      "description": "Kas kontrolü veya beyindeki planlama sorunları nedeniyle konuşma organlarının (dil, dudak vb.) doğru hareket ettirilememesidir. Konuşma netliğini artırmaya odaklanılır.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Edinilmiş Dil Bozuklukları (Afazi)",
+      "description": "Genellikle inme veya travma sonrası gelişen; konuşma, anlama, okuma ve yazma becerilerinin kaybıdır. İletişim köprülerini yeniden kurmayı amaçlarız.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Artikülasyon Bozuklukları",
+      "description": "Belirli seslerin (harflerin) yanlış üretilmesi, atlanması veya değiştirilmesidir. Doğru sesletim çalışmalarıyla konuşma anlaşılır hale getirilir.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Fonolojik Bozukluklar",
+      "description": "Seslerin fiziksel üretiminde değil, dildeki yerlerinin ve kurallarının karıştırılmasıdır (Örn: 'Kitap' yerine 'Tipak' demek). Dilin ses sistemini düzenlemeye çalışılır.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Hızlı Bozuk Konuşma",
+      "description": "Konuşmanın aşırı hızlı, düzensiz ve anlaşılması güç olduğu bir akıcılık sorunudur. Konuşma hızını kontrol etme ve ritim çalışmaları yapılır.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Kekemelik",
+      "description": "Konuşma akışının tekrarlar, uzatmalar veya bloklarla kesintiye uğramasıdır. Akıcı konuşma teknikleri ve özgüven desteği sağlanır.",
+      "url": "working-area-detail.html"
+    },
+    {
+      "title": "Gelişimsel Dil Bozukluğu",
+      "description": "Herhangi bir fiziksel nedene bağlı olmaksızın dil öğreniminde yaşanan kalıcı zorluklardır. Kelime dağarcığını ve cümle kurma becerilerini geliştirmeye odaklanılır.",
+      "url": "working-area-detail.html"
+    }
+  ]
+}

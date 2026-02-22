@@ -105,3 +105,21 @@ if (navButtonWrapper.length > 0) {
   })
 }
 /* --- Nav Buttons --- */
+
+
+/* --- Editor Tables --- */
+const textEditors = document.querySelectorAll(".text-editor");
+if (textEditors && textEditors.length > 0) {
+  textEditors.forEach(el => {
+    const tables = el.querySelectorAll("table");
+    if (tables && tables.length > 0) {
+      tables.forEach(table => {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("table-wrapper");
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      })
+    }
+  })
+}
+/* --- Editor Tables --- */

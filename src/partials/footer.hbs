@@ -119,7 +119,158 @@
     </div>
 </footer>
 
-<div class="fixed-full z-2 pointer-events-none opacity-0 bg-black/15 transition-opacity duration-300 max-lg:bg-black/25"
+<div id="kvkk-popup" class="bg-white clamp-[rounded,16px,24px]! clamp-[p,20px,60px] w-full max-w-7xl! overflow-x-hidden overflow-y-auto" style="display: none">
+    <div class="flex items-center justify-between gap-2 clamp-[mb,20px,50px]">
+        <p class="text-h3 font-medium">KVKK Aydınlatma Metni</p>
+        {{> partials/components/close-button.hbs }}
+    </div>
+    <article class="text-editor">
+        <p>
+            İşbu Kişisel Verilerin Korunması Kanunu (“KVKK”) Aydınlatma Metni; <strong>[Şirket Adı / Site Adı]</strong>
+            (“Veri Sorumlusu”)
+            tarafından işletilen <strong>[www.siteadresiniz.com]</strong> internet sitesi (“Site”) üzerinden sunulan
+            hizmetler kapsamında,
+            kişisel verilerinizin işlenmesine ilişkin olarak sizleri bilgilendirmek amacıyla hazırlanmıştır.
+        </p>
+
+        <h3>1) Veri Sorumlusu</h3>
+        <p>
+            KVKK kapsamında kişisel verileriniz, veri sorumlusu sıfatıyla <strong>[Şirket Adı / Site Adı]</strong>
+            tarafından işlenebilecektir.
+        </p>
+
+        <h3>2) İşlenen Kişisel Veriler</h3>
+        <p>
+            Siteyi kullanımınız ve bizimle iletişiminiz kapsamında; işlem ve hizmetlere göre değişmek üzere aşağıdaki
+            kişisel verileriniz işlenebilir:
+        </p>
+        <ul>
+            <li><strong>Kimlik ve iletişim:</strong> ad-soyad, e-posta adresi, telefon numarası</li>
+            <li><strong>Talep/şikâyet ve içerik:</strong> iletişim formu mesaj içeriği, destek talepleri, geri
+                bildirimler
+            </li>
+            <li><strong>İşlem güvenliği ve log:</strong> IP adresi, cihaz/oturum bilgileri, erişim tarih-saat bilgileri,
+                kullanıcı işlem kayıtları
+            </li>
+            <li><strong>Çerez (cookie) ve kullanım verileri:</strong> Site içi gezinme bilgileri, tercih ayarları, çerez
+                kimlikleri
+            </li>
+        </ul>
+
+        <h3>3) Kişisel Verilerin İşlenme Amaçları</h3>
+        <p>
+            Kişisel verileriniz, aşağıdaki amaçlarla KVKK’ya uygun olarak işlenebilir:
+        </p>
+        <ul>
+            <li>Site üzerinden sunulan hizmetlerin yürütülmesi ve geliştirilmesi</li>
+            <li>İletişim taleplerinin karşılanması, destek süreçlerinin yürütülmesi</li>
+            <li>Bilgi güvenliği süreçlerinin yürütülmesi, suistimal ve yetkisiz erişimin önlenmesi</li>
+            <li>Mevzuattan doğan yükümlülüklerin yerine getirilmesi ve yetkili kurum taleplerinin cevaplanması</li>
+            <li>Hukuki süreçlerin takibi ve hakların korunması</li>
+            <li>Açık rıza verilmesi halinde: pazarlama/iletişim faaliyetleri ve kişiselleştirilmiş içerik sunulması</li>
+        </ul>
+
+        <h3>4) Kişisel Verilerin İşlenmesinin Hukuki Sebebi</h3>
+        <p>
+            Kişisel verileriniz; KVKK’nın 5. maddesinde belirtilen hukuki sebeplere dayanarak işlenebilir. Örneğin;
+        </p>
+        <ul>
+            <li><strong>Kanunlarda öngörülmesi</strong></li>
+            <li><strong>Bir sözleşmenin kurulması veya ifasıyla doğrudan ilgili olması</strong></li>
+            <li><strong>Veri sorumlusunun hukuki yükümlülüğünü yerine getirmesi</strong></li>
+            <li><strong>Bir hakkın tesisi, kullanılması veya korunması</strong></li>
+            <li><strong>Meşru menfaat</strong> (temel hak ve özgürlüklerinize zarar vermemek kaydıyla)</li>
+            <li><strong>Açık rıza</strong> (gerekli hallerde)</li>
+        </ul>
+
+        <h3>5) Çerezler (Cookies) ve Benzeri Teknolojiler</h3>
+        <p>
+            Site üzerinde kullanıcı deneyimini iyileştirmek, Site’nin güvenliğini sağlamak ve performansı ölçmek
+            amacıyla çerezler kullanılabilir.
+            Çerezler; tarayıcınız aracılığıyla cihazınızda saklanan küçük metin dosyalarıdır.
+        </p>
+        <p>
+            Site’de aşağıdaki çerez türleri kullanılabilir:
+        </p>
+        <ul>
+            <li><strong>Zorunlu çerezler:</strong> Site’nin düzgün çalışması ve temel fonksiyonların sağlanması için
+                gereklidir.
+            </li>
+            <li><strong>Performans/analitik çerezleri:</strong> Site kullanımını analiz ederek performansın
+                artırılmasına yardımcı olur.
+            </li>
+            <li><strong>İşlevsellik çerezleri:</strong> Dil/tercih gibi ayarlarınızı hatırlayarak kişiselleştirilmiş
+                kullanım sağlar.
+            </li>
+            <li><strong>Pazarlama çerezleri:</strong> Açık rıza vermeniz halinde ilgi alanlarınıza uygun içerik/duyuru
+                gösterimini destekler.
+            </li>
+        </ul>
+        <p>
+            Çerez tercihlerinizi tarayıcı ayarlarınızdan yönetebilir, mevcut çerezleri silebilir veya çerez kullanımını
+            engelleyebilirsiniz.
+            Ancak çerezleri devre dışı bırakmanız durumunda Site’nin bazı özellikleri beklenen şekilde çalışmayabilir.
+        </p>
+
+        <h3>6) Kişisel Verilerin Aktarılması</h3>
+        <p>
+            Kişisel verileriniz; yukarıda belirtilen amaçlarla, KVKK’nın 8. ve 9. maddelerine uygun olarak ve gerekli
+            güvenlik önlemleri alınarak
+            aşağıdaki alıcı gruplarına aktarılabilir:
+        </p>
+        <ul>
+            <li>Bilgi teknolojileri altyapı sağlayıcıları (barındırma/hosting, e-posta, yedekleme, güvenlik
+                hizmetleri)
+            </li>
+            <li>Yetkili kamu kurum ve kuruluşları (mevzuattan doğan yükümlülükler kapsamında)</li>
+            <li>Hukuki ve mali danışmanlar (hakların korunması ve süreçlerin yürütülmesi kapsamında)</li>
+        </ul>
+
+        <h3>7) Saklama Süresi</h3>
+        <p>
+            Kişisel verileriniz, işleme amaçlarının gerektirdiği süre boyunca ve ilgili mevzuatta öngörülen
+            zamanaşımı/saklama süreleri boyunca
+            saklanır; sürenin sonunda silinir, yok edilir veya anonim hale getirilir.
+        </p>
+
+        <h3>8) KVKK Kapsamındaki Haklarınız</h3>
+        <p>
+            KVKK’nın 11. maddesi uyarınca;
+        </p>
+        <ul>
+            <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+            <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+            <li>İşleme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+            <li>Yurt içinde/yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
+            <li>Eksik/yanlış işlenmişse düzeltilmesini isteme,</li>
+            <li>KVKK’da öngörülen şartlar çerçevesinde silinmesini/yok edilmesini isteme,</li>
+            <li>Bu işlemlerin aktarılan üçüncü kişilere bildirilmesini isteme,</li>
+            <li>İşlenen verilerin münhasıran otomatik sistemlerle analiz edilmesi suretiyle aleyhinize bir sonucun
+                ortaya çıkmasına itiraz etme,
+            </li>
+            <li>Kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde zararın giderilmesini talep etme</li>
+        </ul>
+        <p>
+            haklarına sahipsiniz.
+        </p>
+
+        <h3>9) Başvuru ve İletişim</h3>
+        <p>
+            Haklarınıza ilişkin taleplerinizi, KVKK ve ilgili mevzuat kapsamında <strong>[Şirket Adı / Site
+            Adı]</strong>’na iletebilirsiniz.
+            Aşağıdaki alanları kendi iletişim bilgilerinizle doldurabilirsiniz:
+        </p>
+        <ul>
+            <li><strong>Adres:</strong> [Açık Adres]</li>
+            <li><strong>E-posta:</strong> [kvkk@siteadresiniz.com]</li>
+            <li><strong>Telefon:</strong> [+90 (___) ___ __ __]</li>
+            <li><strong>KEP (varsa):</strong> [____@____.kep.tr]</li>
+        </ul>
+        <p><em>Son güncelleme tarihi:</em> <strong>[gg.aa.yyyy]</strong></p>
+    </article>
+</div>
+
+<div class="fixed-full z-50 pointer-events-none opacity-0 bg-black/15 transition-opacity duration-300 max-lg:bg-black/25"
      :class="{ 'opacity-100! pointer-events-auto!': ($store.data.activeIndex > -1 && ($store.data.dropdownMenuOpen || $store.data.megaMenuOpen)) || $store.data.menuOpen }"
     @click="$store.data.menuOpen = false"></div>
 </body>

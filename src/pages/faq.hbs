@@ -1,0 +1,24 @@
+{{> partials/header.hbs pageTitle="Sıkça Sorulan Sorular" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Sıkça Sorulan Sorular" url="faq.html")
+        )
+    }}
+    <section class="clamp-[mb,50px,150px]">
+        <div class="container">
+            <div class="max-w-1072 mx-auto">
+                <h1 class="text-h1 font-semibold text-dark clamp-[my,24px,50px] text-center">Sıkça Sorulan Sorular</h1>
+                <div x-data="{ activeIndex: 0 }" class="flex flex-col clamp-[gap,12px,16px]">
+                    {{#each (array "Çocuğum geç konuşuyor, ne yapmalıyım?" "Konuşma geriliği kendiliğinden geçer mi?" "Çocuğum geç konuşuyor, ne yapmalıyım?" "Konuşma geriliği kendiliğinden geçer mi?" "Çocuğum geç konuşuyor, ne yapmalıyım?" "Konuşma geriliği kendiliğinden geçer mi?") as |item|}}
+                        {{> partials/components/faq-card.hbs item=item }}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> partials/footer.hbs cta=true }}

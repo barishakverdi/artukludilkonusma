@@ -1,0 +1,15 @@
+{{> partials/header.hbs pageTitle="Çalışma Alanlarımız" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Çalışma Alanlarımız" url="#")
+            (object text="Dil ve Konuşma Terapisi" url="working-areas.html")
+        )
+    }}
+    {{> partials/components/working-areas/hero.hbs }}
+    {{> partials/components/working-areas/content.hbs }}
+</main>
+
+{{> partials/footer.hbs cta=true }}

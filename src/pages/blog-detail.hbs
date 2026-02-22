@@ -1,0 +1,192 @@
+{{> partials/header.hbs pageTitle="Dil ve Konuşma Bozuklukları" }}
+
+<main class="pt-(--headerHeight)">
+    {{> partials/components/breadcrumb.hbs
+        breadcrumb=(array
+            (object text="Ana Sayfa" url="index.html")
+            (object text="Blog" url="blog.html")
+            (object text="Dil ve Konuşma Bozuklukları" url="blog-detail.html")
+        )
+    }}
+    <section class="clamp-[mt,24px,50px] clamp-[mb,50px,150px]">
+        <div class="container">
+            <div class="grid grid-cols-12 gap-6 max-md:gap-4">
+                <div class="col-span-2 flex-center max-md:col-span-12">
+                    <a href="javascript:history.back()" class="w-fit h-fit inline-flex items-center gap-2.5 pb-2.5 border-b border-black/10 cursor-pointer lg:transition-colors lg:duration-300 lg:hover:border-black lg:hover:*:text-primary">
+                        <i class="icon-arrow-left text-[16px] h-4 text-secondary lg:transition-colors lg:duration-300"></i>
+                        <span class="clamp-[text,16px,18px] leading-relaxed text-dark lg:transition-colors lg:duration-300">Geri Dön</span>
+                    </a>
+                </div>
+                <div class="col-span-8 clamp-[mb,12px,32px] max-lg:col-span-10 max-md:col-span-12">
+                    <h1 class="text-h1 font-semibold text-dark text-center">Dil ve Konuşma Bozuklukları</h1>
+                </div>
+                <div class="col-span-2 max-lg:hidden"></div>
+                <div class="col-span-2"></div>
+                <div class="col-span-8 max-lg:col-span-10 max-md:col-span-12">
+                    <div>
+                        <img src="assets/image/index/image-2.jpg" alt="" loading="eager" width="513" height="591" class="w-full h-auto md:aspect-1072/533 object-cover clamp-[rounded,16px,24px]">
+                    </div>
+                </div>
+                <div class="col-span-2 max-lg:hidden"></div>
+                <div class="col-span-2 flex justify-center max-md:col-span-12 max-md:mb-2">
+                    <div class="h-fit lg:transiton-all lg:duration-300 lg:sticky lg:top-7.5 lg:group-[&.scrolling-up]/body:top-[calc(var(--headerHeight)+30px)]">
+                        <p class="text-body text-dark clamp-[mb,16px,24px] text-center">Paylaş</p>
+                        <ul x-data="{
+                                share: [
+                                    {
+                                        title: 'Facebook\'ta Paylaş',
+                                        url: 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href),
+                                        icon: 'icon-facebook'
+                                    },
+                                    {
+                                        title: 'X\'da Paylaş',
+                                        url: 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title),
+                                        icon: 'icon-x'
+                                    },
+                                    {
+                                        title: 'LinkedIn\'de Paylaş',
+                                        url: 'https://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(window.location.href) + '&title=' + encodeURIComponent(document.title),
+                                        icon: 'icon-linkedin'
+                                    },
+                                    {
+                                        title: 'E-posta ile Paylaş',
+                                        url: 'mailto:?subject=' + encodeURIComponent(document.title) + '&body=' + encodeURIComponent(window.location.href),
+                                        icon: 'icon-envelope'
+                                    },
+                                    {
+                                        title: 'WhatsApp\'ta Paylaş',
+                                        url: 'https://api.whatsapp.com/send?text=' + encodeURIComponent(document.title + ' ' + window.location.href),
+                                        icon: 'icon-whatsapp'
+                                    }
+                                ],
+                                copied: false,
+                                copiedText: $refs.copyEl.getAttribute('data-copied-text') || 'Kopyalandı!',
+                                originalText: 'Linki Kopyala',
+                                copyFunction() {
+                                    navigator.clipboard.writeText(window.location.href).then(() => {
+                                        this.copied = true;
+                                        $refs.copyTextEl.textContent = this.copiedText;
+                                        $refs.copyEl.classList.add('copied');
+                                        setTimeout(() => {
+                                            this.copied = false;
+                                            $refs.copyTextEl.textContent = this.originalText;
+                                            $refs.copyEl.classList.remove('copied');
+                                        }, 2500);
+                                    }).catch(err => {
+                                        console.error('Failed to copy text: ', err);
+                                    });
+                                }
+                            }" class="flex md:flex-col md:items-center clamp-[gap,8px,14px] max-md:flex-wrap">
+                            <template x-for="item in share">
+                                <li>
+                                    <a :href="item.url" target="_blank" :title="item.title" class="clamp-[size,40px,44px] bg-dark/10 border border-dark/10 rounded-full flex-center lg:transition-colors lg:duration-300 lg:hover:bg-primary lg:hover:border-primary lg:hover:*:text-white">
+                                        <i class="text-[15px] h-15 text-dark lg:transition-colors lg:duration-300" :class="item.icon"></i>
+                                    </a>
+                                </li>
+                            </template>
+                            <li>
+                                <div title="Linki Kopyala" x-ref="copyEl" data-copy="wrapper" data-copied-text="Kopyalandı!"
+                                     class="group/c clamp-[size,40px,44px] bg-dark/10 border border-dark/10 rounded-full flex-center relative cursor-pointer lg:transition-colors lg:duration-300 lg:hover:bg-primary lg:hover:border-primary lg:hover:*:text-white"
+                                    @click="copyFunction()">
+                                    <i class="icon-link text-[15px] h-15 text-dark lg:transition-colors lg:duration-300"></i>
+                                    <div class="absolute left-1/2 bottom-full -translate-x-1/2 w-max origin-bottom transition-all duration-300 group-not-[&:hover,.copied]/c:opacity-0 group-not-[&:hover,.copied]/c:pointer-events-none group-not-[&:hover,.copied]/c:scale-90 group-not-[&:hover,.copied]/c:blur-xs">
+                                        <div data-copy-text x-ref="copyTextEl" class="bg-white border border-dark/10 mb-2 rounded-full px-4 py-2 text-[14px] leading-none font-medium text-dark/80 uppercase whitespace-nowrap">Linki Kopyala</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-span-8 max-lg:col-span-10 max-md:col-span-12">
+                    <article class="text-editor working-area-detail-content">
+                        <h2>Dil ve Konuşma Bozuklukları: İletişim Engellerini Birlikte Aşıyoruz</h2>
+                        <p>İletişim, bireyin dünyaya açılan kapısıdır. Özel Artuklu Dil, Konuşma ve Ergoterapi Merkezi olarak, iletişim
+                            becerilerinde zorluk yaşayan her yaştan bireye bilimsel ve kanıta dayalı yöntemlerle destek oluyoruz. Dil ve
+                            konuşma bozuklukları, sadece "konuşamamak" demek değildir; kendini ifade etme, anlama, ses üretimi ve
+                            akıcılık gibi geniş bir yelpazeyi kapsar. Erken müdahale ile bu engellerin aşılabileceğini unutmayın.</p>
+                        <p></p>
+                        <h3>📌 Önemli Bilgi: Dil ve Konuşma Aynı Şey Değildir!</h3>
+                        <ul>
+                            <li>
+                                <strong>DİL (Language):</strong> Beyinle ilgilidir. Düşünceleri kelimelere dökme, başkalarının
+                                söylediklerini anlama ve cümle kurma becerisidir.
+                            </li>
+                            <li>
+                                <strong>KONUŞMA (Speech):</strong> Fiziksel üretimle ilgilidir. Seslerin (harflerin) doğru çıkarılması,
+                                akıcılık ve ses kalitesidir.
+                            </li>
+                        </ul>
+                        <p style="font-style: italic">Çocuğunuz "su" diyebiliyor ama "bana su ver" diyemiyorsa bu bir dil sorunudur.
+                            "Su" yerine "Tu" diyorsa bu bir konuşma sorunudur.</p>
+                        <p></p>
+                        <h3>📋 Hangi Durumlarla İlgileniyoruz? (Sınıflandırma Tablosu)</h3>
+                        <p>Aşağıdaki tablo, merkezimizde tanı ve tedavisi uygulanan bozuklukların genel sınıflandırmasını içerir.</p>
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Kategori</th>
+                                <th>Bozukluk Türü</th>
+                                <th>Kısa Tanım</th>
+                                <th>Yaygın Belirtiler</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Konuşma Sesi</td>
+                                <td>Artikülasyon Bozukluğu</td>
+                                <td>Seslerin yanlış üretilmesi.</td>
+                                <td>'R'leri söyleyememe, harf yutma.</td>
+                            </tr>
+                            <tr>
+                                <td>Konuşma Sesi</td>
+                                <td>Fonolojik Bozukluk</td>
+                                <td>Seslerin yer değiştirmesi.</td>
+                                <td>'Kitap' yerine 'Tipak' demek.</td>
+                            </tr>
+                            <tr>
+                                <td>Akıcılık</td>
+                                <td>Kekemelik</td>
+                                <td>Konuşma akışının bozulması.</td>
+                                <td>Tekrarlar (ba-ba-ba), uzatmalar (s-s-su), bloklar.</td>
+                            </tr>
+                            <tr>
+                                <td>Akıcılık</td>
+                                <td>Hızlı Bozuk Konuşma</td>
+                                <td>Aşırı hızlı ve anlaşılmaz ritim.</td>
+                                <td>Kelimelerin iç içe geçmesi, hece yutma.</td>
+                            </tr>
+                            <tr>
+                                <td>Gelişimsel</td>
+                                <td>Gecikmiş Dil ve Konuşma</td>
+                                <td>Yaşıtlarından geri kalma.</td>
+                                <td>2 yaşında hiç kelime olmaması, 3 yaşında cümle kuramama.</td>
+                            </tr>
+                            <tr>
+                                <td>Motor</td>
+                                <td>Apraksi ve Dizartri</td>
+                                <td>Kas kontrolü veya planlama sorunu.</td>
+                                <td>Zorlanarak konuşma, ağız hareketlerinde tutukluk.</td>
+                            </tr>
+                            <tr>
+                                <td>Ses</td>
+                                <td>Ses Bozuklukları</td>
+                                <td>Ses kalitesindeki problemler.</td>
+                                <td>Kalıcı kısıklık, çatallanma, burundan konuşma.</td>
+                            </tr>
+                            <tr>
+                                <td>Nörolojik</td>
+                                <td>Afazi (Edinilmiş)</td>
+                                <td>Beyin hasarı sonrası dil kaybı.</td>
+                                <td>Kelime bulamama, söylenenleri anlamama (genelde inme sonrası).</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </article>
+                </div>
+                <div class="col-span-2"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> partials/footer.hbs cta=true }}

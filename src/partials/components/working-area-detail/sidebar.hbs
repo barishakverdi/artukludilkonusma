@@ -1,0 +1,36 @@
+<div x-data="{ toggle: false, activeIndex: 0 }" class="bg-white border border-dark/10 clamp-[rounded,12px,16px] clamp-[p,20px,24px] lg:transiton-all lg:duration-300 lg:sticky lg:top-7.5 lg:group-[&.scrolling-up]/body:top-[calc(var(--headerHeight)+30px)]">
+    <div class="w-full inline-flex items-center clamp-[gap,8px,18px] max-lg:justify-between"
+        @click="toggle = !toggle">
+        <img src="assets/image/favicon.svg" alt="" loading="lazy" width="26" height="29" class="w-6.5">
+        <p class="clamp-[text,18px,20px] leading-relaxed font-medium text-dark">Kategoriler</p>
+        <i class="icon-angle-down text-[12px] h-3 text-dark ml-auto transition-all duration-300 lg:hidden!" :class="{ 'scale-y-[-1]': !$store.data.isDesktop && toggle }"></i>
+    </div>
+    <div x-show="$store.data.isDesktop || (!$store.data.isDesktop && toggle)" x-collapse.duration.300ms>
+        <div class="flex flex-col clamp-[gap,12px,16px] clamp-[mt,16px,50px,1024px,1680px]">
+            {{#each footer.workingAreas as |item|}}
+                <div class="bg-light/20 border border-dark/10 rounded-2 lg:transition-colors lg:duration-300 lg:hover:border-dark">
+                    <div class="px-4 clamp-[py,16px,20px] flex items-center justify-between gap-3 cursor-pointer"
+                        @click="activeIndex = activeIndex === {{@index}} ? -1 : {{@index}}">
+                        <p class="clamp-[text,16px,18px] leading-relaxed font-medium text-dark">{{item.title}}</p>
+                        <i class="icon-angle-down text-[12px] h-3 text-dark transition-transform duration-300" :class="{ 'scale-y-[-1]': activeIndex === {{@index}} }"></i>
+                    </div>
+                    <div class="px-4"
+                        x-show="activeIndex === {{@index}}" x-collapse.duration.300ms>
+                        <ul class="border-l border-black/10 clamp-[pl,12px,20px] mb-5">
+                            {{#each item.subItems as |subItem|}}
+                                <li>
+                                    <a href="{{subItem.url}}" class="group/a inline-flex items-center clamp-[gap,6px,10px] clamp-[py,3px,6px]">
+                                        <span class="size-1.5 shrink-0 block bg-primary rounded-full"></span>
+                                        <span>
+                                            <span class="text-body text-text lg:transition-all lg:duration-300 lg:underline-text lg:group-hover/a:text-primary lg:group-hover/a:bg-size-full">{{subItem.title}}</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

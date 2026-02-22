@@ -1,4 +1,5 @@
-<div class="group/t lg:clamp-[h,360px,565px] rounded-4 overflow-hidden relative max-lg:aspect-3/4">
+<div class="group/t lg:clamp-[h,360px,565px] rounded-4 overflow-hidden relative max-lg:aspect-3/4"
+     data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 100ms);">
     <a href="#team-{{@index}}" title="{{item.name}}" data-fancybox class="absolute-full block z-3"></a>
     <img src="{{item.image}}" alt="" loading="lazy" width="374" height="565" class="full-cover lg:transition-transform lg:duration-300 lg:group-hover/t:scale-110">
     <div class="absolute left-0 bottom-0 w-full md:p-4">
@@ -7,7 +8,7 @@
             <p class="text-[16px] leading-relaxed text-white/80">{{item.position}}</p>
         </div>
     </div>
-    <div id="team-{{@index}}" class="bg-white! max-w-1120! w-full clamp-[rounded,16px,24px]! p-0! overflow-hidden! relative" style="display: none">
+    <div id="team-{{@index}}" class="bg-white! max-w-1120! w-full clamp-[rounded,16px,24px]! p-0! overflow-x-hidden overflow-y-auto relative" style="display: none">
         <button data-fancybox-close title="Modalı kapat" class="absolute clamp-[right,16px,24px] clamp-[top,16px,24px] clamp-[size,38px,44px] border border-secondary/20 rounded-full flex-center cursor-pointer lg:transition-colors lg:duration-300 lg:hover:border-dark">
             <i class="icon-xmark clamp-[text,14px,16px] clamp-[h,14px,16px] text-dark"></i>
         </button>
