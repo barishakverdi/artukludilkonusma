@@ -1,0 +1,33 @@
+<section class="clamp-[pt,30px,45px]">
+    <div class="container">
+        <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
+            <div class="lg:col-span-5 lg:clamp-[py,24px,121px,1024px,1680px]">
+                <h1 class="text-h1 font-semibold clamp-[mb,16px,30px] *:text-primary"
+                    data-animation style="--translate-y: -50px; --blur: 4px;">Her Çocuk Kendi Hızında, Kendi <span>Renginde</span> Büyür.</h1>
+                <p class="text-body text-text clamp-[mb,20px,50px]"
+                   data-animation style="--translate-y: -50px; --blur: 4px; --delay: 50ms">Konuşma zorluklarından duyusal hassasiyetlere kadar, bireye özel terapi programlarımızla engelleri birlikte aşıyoruz.</p>
+                <div class="flex flex-wrap clamp-[gap,8px,20px]"
+                     data-animation style="--translate-y: -50px; --blur: 4px; --delay: 100ms">
+                    {{> partials/components/button.hbs
+                        color="primary"
+                        text="İletişime Geç"
+                        url="contact.html"
+                        icon="icon-phone"
+                    }}
+                    {{> partials/components/button.hbs
+                        color="secondary-border"
+                        text="Çalışma Alanlarımız"
+                        url="working-areas.html"
+                    }}
+                </div>
+            </div>
+            <div class="col-span-1 max-xl:hidden"></div>
+            <div class="lg:col-span-6">
+                <div class="w-[calc(100%+var(--left))] h-full origin-right"
+                     data-animation style="--blur: 4px; --scale: 0.95">
+                    <img src="assets/image/index/image-1.jpg" alt="" loading="eager" width="948" height="575" class="full-cover clamp-[rounded-l,16px,24px,1024px,1680px]">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

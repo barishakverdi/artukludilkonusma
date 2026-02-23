@@ -1,0 +1,43 @@
+<section>
+    <div class="container max-lg:pr-0!">
+        <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
+            <div class="lg:col-span-3 max-lg:pr-4">
+                <div class="size-full relative clamp-[py,30px,100px]">
+                    <span class="absolute left-0 top-0 w-[calc(100%+var(--left))] h-full -translate-x-(--left) bg-primary clamp-[rounded-r,16px,24px]"></span>
+                    <div class="h-full relative flex flex-col justify-between gap-4"
+                         data-animation style="--translate-x: -50px; --blur: 4px;">
+                        <div>
+                            <div class="inline-flex items-center clamp-[gap,8px,18px] mb-4">
+                                <img src="assets/image/favicon-white.svg" alt="" loading="lazy" width="26" height="29" class="w-6.5">
+                                <p class="clamp-[text,16px,18px] leading-relaxed text-white">Uzmanlarımız</p>
+                            </div>
+                            <h2 class="text-h2 font-medium text-white">Uzman Kadromuz</h2>
+                        </div>
+                        {{> partials/components/button.hbs
+                            color="white"
+                            text="Tümünü Gör"
+                            icon="icon-arrow-right"
+                            url="team.html"
+                            class="max-lg:hidden"
+                        }}
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-9 clamp-[pl,0px,40px,1024px,1680px]">
+                <div class="grid grid-cols-3 clamp-[gap,16px,24px] max-lg:flex max-lg:overflow-x-auto max-lg:pb-2 max-lg:snap-x max-lg:snap-mandatory max-lg:*:snap-start max-lg:*:w-2/3 max-lg:*:shrink-0">
+                    {{#each index.team as |item|}}
+                        {{> partials/components/team-card.hbs item=item }}
+                    {{/each}}
+                </div>
+            </div>
+            <div class="flex-center lg:hidden">
+                {{> partials/components/button.hbs
+                    color="white"
+                    text="Tümünü Gör"
+                    icon="icon-arrow-right"
+                    url="team.html"
+                }}
+            </div>
+        </div>
+    </div>
+</section>

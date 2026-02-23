@@ -1,0 +1,85 @@
+<section class="clamp-[py,50px,180px]">
+    <div class="container">
+        <div class="flex-center flex-col text-center gap-3 clamp-[mb,30px,54px] max-w-731 mx-auto origin-top"
+             data-animation style="--translate-y: -50px; --blur: 4px; --scale: 0.95">
+            <h2 class="text-h2 font-medium">Ebeveynlerin Yorumu</h2>
+            <p class="text-body text-text">Her bireyin gelişim yolculuğu parmak izi kadar özeldir. Merkezimizde bilimsel veriler ışığında, aileyi de sürece dahil eden, şeffaf ve sonuç odaklı bir yol haritası izliyoruz.</p>
+        </div>
+    </div>
+    <div>
+        <div class="comments-slider swiper w-full clamp-[mb,16px,24px]"
+             data-animation style="--translate-y: -50px; --blur: 4px;">
+            <div class="swiper-wrapper ease-linear!">
+                {{#times 10}}
+                    <div class="swiper-slide h-auto! self-stretch">
+                        <div class="bg-white clamp-[px,20px,32px] clamp-[py,24px,42px] rounded-4">
+                            <div class="flex items-center justify-between gap-4 mb-3">
+                                <h3 class="clamp-[text,16px,24px] text-dark">Merve KURT</h3>
+                                <div class="inline-flex gap-0.5">
+                                    {{#times 5}}
+                                        <i class="icon-star text-[20px] h-5 text-[#F3DE09]"></i>
+                                    {{/times}}
+                                </div>
+                            </div>
+                            <p class="text-body text-text">Lorem ipsum dolor sit amet consectetur. Diam senectus pharetra fringilla morbi lectus phasellus augue vulputate. Eget ultricies porta netus mauris. Accumsan purus porttitor semper ullamcorper tortor dolor. Pretium mattis tempor mi urna consectetur euismod diam condimentum.</p>
+                        </div>
+                    </div>
+                {{/times}}
+            </div>
+        </div>
+        <div class="comments-slider swiper w-full" dir="rtl"
+             data-animation style="--translate-y: 50px; --blur: 4px;">
+            <div class="swiper-wrapper ease-linear!">
+                {{#times 10}}
+                    <div class="swiper-slide h-auto! self-stretch" dir="ltr">
+                        <div class="bg-white clamp-[px,20px,32px] clamp-[py,24px,42px] rounded-4">
+                            <div class="flex items-center justify-between gap-4 mb-3">
+                                <h3 class="clamp-[text,16px,24px] text-dark">Merve KURT</h3>
+                                <div class="inline-flex gap-0.5">
+                                    {{#times 5}}
+                                        <i class="icon-star text-[20px] h-5 text-[#F3DE09]"></i>
+                                    {{/times}}
+                                </div>
+                            </div>
+                            <p class="text-body text-text">Lorem ipsum dolor sit amet consectetur. Diam senectus pharetra fringilla morbi lectus phasellus augue vulputate. Eget ultricies porta netus mauris. Accumsan purus porttitor semper ullamcorper tortor dolor. Pretium mattis tempor mi urna consectetur euismod diam condimentum.</p>
+                        </div>
+                    </div>
+                {{/times}}
+            </div>
+        </div>
+    </div>
+    <script type="module" vite-ignore>
+        const commentsSlider = new Swiper(".comments-slider", {
+            modules: [Autoplay],
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            speed: 3500,
+            resistance: true,
+            resistanceRatio: false,
+            loop: true,
+            centeredSlides: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+            },
+            breakpoints: {
+                577: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    speed: 5000,
+                },
+                1025: {
+                    slidesPerView: 2.6,
+                    spaceBetween: 20,
+                    speed: 5000,
+                },
+                1281: {
+                    slidesPerView: 3.4,
+                    spaceBetween: 24,
+                    speed: 5000,
+                },
+            },
+        });
+    </script>
+</section>

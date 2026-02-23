@@ -1,0 +1,13 @@
+<section class="clamp-[pt,20px,40px]">
+    <div class="container">
+        <div class="bg-light clamp-[px,16px,24px] clamp-[py,12px,16px] rounded-4">
+            <ul class="inline-block text-body text-text *:last:text-black [&_li+li]:before:content-['/'] [&_li+li]:before:mx-2">
+                {{#each breadcrumb as |item|}}
+                    <li class="inline">
+                        <a href="{{item.url}}">{{item.text}}</a>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+<div class="group/t lg:clamp-[h,360px,565px] rounded-4 overflow-hidden relative max-lg:aspect-3/4"
+     data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 100ms);">
+    <a href="#team-{{@index}}" title="{{item.name}}" data-fancybox class="absolute-full block z-3"></a>
+    <img src="{{item.image}}" alt="" loading="lazy" width="374" height="565" class="full-cover lg:transition-transform lg:duration-300 lg:group-hover/t:scale-110">
+    <div class="absolute left-0 bottom-0 w-full md:p-4">
+        <div class="bg-black/30 md:rounded-2 backdrop-blur-xs px-4 py-2">
+            <h3 class="clamp-[text,18px,24px] text-white">{{item.name}}</h3>
+            <p class="text-[16px] leading-relaxed text-white/80">{{item.position}}</p>
+        </div>
+    </div>
+    <div id="team-{{@index}}" class="bg-white! max-w-1120! w-full clamp-[rounded,16px,24px]! p-0! overflow-x-hidden overflow-y-auto relative" style="display: none">
+        <button data-fancybox-close title="Modalı kapat" class="absolute clamp-[right,16px,24px] clamp-[top,16px,24px] clamp-[size,38px,44px] border border-secondary/20 rounded-full flex-center cursor-pointer lg:transition-colors lg:duration-300 lg:hover:border-dark">
+            <i class="icon-xmark clamp-[text,14px,16px] clamp-[h,14px,16px] text-dark"></i>
+        </button>
+        <div class="flex max-md:flex-col">
+            <div class="clamp-[px,12px,30px] clamp-[pt,12px,30px] shrink-0 flex items-end max-lg:border-b max-lg:border-b-black/10">
+                <div class="clamp-[w,280px,373px] clamp-[h,425px,565px]">
+                    <img src="{{item.image}}" alt="" loading="lazy" width="373" height="565" class="full-cover">
+                </div>
+            </div>
+            <div class="clamp-[pl,24px,60px,1024px,1680px] clamp-[py,30px,78px] clamp-[pr,20px,53px]">
+                <div class="clamp-[mb,16px,30px]">
+                    <h3 class="text-h2 font-medium text-dark">{{item.name}}</h3>
+                    <p class="clamp-[text,20px,32px] text-secondary mt-[5px]">{{item.position}}</p>
+                </div>
+                <ul class="flex flex-wrap clamp-[gap,8px,14px] clamp-[mb,16px,30px]">
+                    {{#each (array (object icon="icon-instagram" url="https://instagram.com") (object icon="icon-linkedin" url="https://linkedin.com")) as |social|}}
+                        <li>
+                            <a href="{{social.url}}" target="_blank" title="Sosyal medyada takip et: {{item.name}}" class="clamp-[size,40px,44px] bg-dark/10 border border-dark/10 rounded-full flex-center lg:transition-colors lg:duration-300 lg:hover:bg-primary lg:hover:border-primary lg:hover:*:text-white">
+                                <i class="{{social.icon}} text-[15px] h-15 text-dark lg:transition-colors lg:duration-300"></i>
+                            </a>
+                        </li>
+                    {{/each}}
+                </ul>
+                <article class="text-editor">
+                    <p>Lorem ipsum dolor sit amet consectetur. Diam senectus pharetra fringilla morbi lectus phasellus
+                        augue vulputate. Eget ultricies porta netus mauris. Accumsan purus porttitor semper ullamcorper
+                        tortor dolor. Pretium mattis tempor mi urna consectetur euismod diam condimentum.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur. Diam senectus pharetra fringilla morbi lectus phasellus
+                        augue vulputate. Eget ultricies porta netus mauris. Accumsan purus porttitor semper ullamcorper
+                        tortor dolor. Pretium mattis tempor mi urna consectetur euismod diam condimentum.</p>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

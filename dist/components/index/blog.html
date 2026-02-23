@@ -1,0 +1,54 @@
+<section class="clamp-[py,50px,180px] overflow-hidden">
+    <div class="container">
+        <div class="flex items-center justify-between gap-4 clamp-[mb,24px,54px] py-2">
+            <h2 class="text-h2 font-medium text-dark"
+                data-animation style="--translate-x: -50px; --blur: 4px;">Blog</h2>
+            <div class="flex clamp-[gap,8px,12px]"
+                 data-animation style="--translate-x: 50px; --blur: 4px;">
+                {{> partials/components/nav-button.hbs
+                    el="blog-prev"
+                    icon="icon-arrow-left"
+                }}
+                {{> partials/components/nav-button.hbs
+                    el="blog-next"
+                    icon="icon-arrow-right"
+                }}
+            </div>
+        </div>
+        <div class="blog-slider"
+             data-animation style="--translate-y: 50px; --blur: 4px;">
+            <div class="swiper-wrapper">
+                {{#each index.blog as |item|}}
+                    <div class="swiper-slide h-auto! self-stretch *:h-full">
+                        {{> partials/components/blog-card.hbs item=item }}
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    <script type="module" vite-ignore>
+        const blogSlider = new Swiper(".blog-slider", {
+            modules: [Navigation],
+            slidesPerView: 1.2,
+            spaceBetween: 16,
+            speed: 700,
+            resistance: true,
+            resistanceRatio: false,
+            navigation: {
+                prevEl: ".blog-prev",
+                nextEl: ".blog-next",
+                disabledClass: "disabled"
+            },
+            breakpoints: {
+                577: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1025: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                }
+            },
+        });
+    </script>
+</section>

@@ -1,0 +1,23 @@
+<section id="content" class="clamp-[pb,50px,150px]">
+    <div class="container">
+        <div class="grid grid-cols-4 clamp-[gap,16px,24px] max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1">
+            {{#each workingAreas as |item|}}
+                <div class="bg-white border border-dark/10 clamp-[rounded,12px,16px] clamp-[p,20px,24px] flex flex-col justify-between lg:transition-shadow lg:duration-300 lg:hover:shadow-card"
+                     data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{@index}} * 50ms)">
+                    <div>
+                        <h2 class="mb-3">
+                            <a href="{{item.url}}" class="inline-block lg:hover:*:text-primary lg:hover:*:bg-size-full">
+                                <span class="clamp-[text,18px,24px] font-medium text-dark lg:transition-all lg:duration-300 lg:underline-text">{{item.title}}</span>
+                            </a>
+                        </h2>
+                        <p class="text-[16px] leading-relaxed text-text line-clamp-3 clamp-[mb,24px,50px]">{{item.description}}</p>
+                    </div>
+                    <a href="{{item.url}}" class="w-fit inline-flex items-center gap-2.5 pb-2.5 border-b border-black/10 cursor-pointer lg:transition-colors lg:duration-300 lg:hover:border-black lg:hover:*:text-primary">
+                        <span class="clamp-[text,16px,18px] leading-relaxed text-dark lg:transition-colors lg:duration-300">Detayı Gör</span>
+                        <i class="icon-arrow-right text-[16px] h-4 text-secondary lg:transition-colors lg:duration-300"></i>
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

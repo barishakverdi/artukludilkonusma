@@ -1,0 +1,28 @@
+<section class="clamp-[py,50px,150px]">
+    <div class="container">
+        <div>
+            <h2 class="text-h2 font-medium text-dark clamp-[mb,24px,50px] text-center"
+                data-animation style="--translate-y: -50px; --blur: 4px;">Galeri</h2>
+            <div class="max-w-1074 mx-auto">
+                <div class="grid grid-cols-2 clamp-[gap,8px,24px] grid-flow-row-dense">
+                    {{#each about-us.gallery as |item|}}
+                        <div
+                            x-data="{ index: {{@index}} }"
+                            :class="{
+                                'aspect-4/3': index % 4 === 0 || index % 4 === 3,
+                                'aspect-square row-span-2': index % 4 === 1 || index % 4 === 2
+                            }"
+                            class="group w-full relative overflow-hidden clamp-[rounded,10px,16px]"
+                            data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 25ms);">
+                            <a href="{{item}}" title="Özel Artuklu Dil, Konuşma ve Ergoterapi Merkezi" data-fancybox="gallery" class="absolute-full block z-3"></a>
+                            <img src="{{item}}" alt="" loading="lazy" width="525" height="406" class="full-cover">
+                            <div class="absolute-full flex-center bg-dark/35 lg:transition-opacity lg:duration-300 lg:group-not-hover:opacity-0 max-lg:hidden">
+                                <i class="icon-magnifying-glass-plus clamp-[text,24px,44px] clamp-[h,24px,44px] text-white"></i>
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

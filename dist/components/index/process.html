@@ -1,0 +1,30 @@
+<section class="clamp-[py,50px,180px]">
+    <div class="container">
+        <div class="flex-center flex-col text-center gap-3 clamp-[mb,30px,70px] max-w-731 mx-auto origin-top"
+             data-animation style="--translate-y: -50px; --blur: 4px; --scale: 0.95">
+            <h2 class="text-h2 font-medium">Terapi Sürecimiz Nasıl İşliyor?</h2>
+            <p class="text-body text-text">Her bireyin gelişim yolculuğu parmak izi kadar özeldir. Merkezimizde bilimsel veriler ışığında, aileyi de sürece dahil eden, şeffaf ve sonuç odaklı bir yol haritası izliyoruz.</p>
+        </div>
+        <div class="flex max-lg:grid max-lg:grid-cols-2 max-lg:gap-4 max-md:grid-cols-1">
+            {{#each index.process as |item|}}
+                <div data-animation style="--translate-y: -50px; --blur: 4px; --delay: calc({{add @index 1}} * 50ms); --color: {{item.color}}">
+                    <div class="bg-(--color) px-6 py-3 clamp-[rounded,16px,24px] clamp-[mb,12px,25px]">
+                        <span class="clamp-[text,84px,188px] leading-none font-semibold text-white/30">{{add @index 1}}</span>
+                    </div>
+                    <div>
+                        <h3 class="clamp-[text,18px,24px] text-dark mb-3">{{item.title}}</h3>
+                        <p class="text-[16px] leading-relaxed text-text">Sürecimiz, ailenin öyküsünü dinlemekle başlar. Uzmanlarımız, çocuğunuzun gelişimsel ihtiyaçlarını belirlemek için uluslararası geçerliliği olan standart testler ve klinik gözlem yöntemleri uygular.</p>
+                    </div>
+                </div>
+                {{#unless @last}}
+                    <div class="clamp-[w,35px,80px,1024px,1680px] shrink-0 clamp-[pt,50px,94px,1024px,1680px] max-lg:hidden">
+                        <div class="relative">
+                            <div class="w-full border-b border-dashed border-black/10"></div>
+                            <i class="icon-angle-right text-[10px] h-2.5 absolute-center text-primary"></i>
+                        </div>
+                    </div>
+                {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+</section>

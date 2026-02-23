@@ -1,0 +1,16 @@
+<div class="group/f form-group {{class}}">
+   {{#if label}}
+      <label for="{{id}}">{{label}}{{#if required}}*{{/if}}</label>
+   {{/if}}
+   <input type="{{#if type}}{{type}}{{else}}text{{/if}}" name="{{name}}" id="{{id}}" {{#if placeholder}}placeholder="{{placeholder}} {{#if required}}*{{/if}}"{{/if}} {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} class="real-form-control form-control">
+   {{#if (eq type "search")}}
+       <button type="submit">
+          <i class="icon-magnifying-glass search-icon"></i>
+       </button>
+   {{/if}}
+    {{#if (eq id "appointment-date")}}
+      <i class="icon-calendar-pencil calendar-icon"></i>
+    {{else if (eq id "appointment-date-index")}}
+      <i class="icon-calendar-clock calendar-icon"></i>
+   {{/if}}
+</div>
