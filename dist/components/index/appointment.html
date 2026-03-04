@@ -1,79 +1,199 @@
 <section class="lg:pr-6">
-    <div class="bg-white lg:clamp-[rounded-r,16px,24px] shadow-card clamp-[py,60px,90px] overflow-hidden">
+    <div class="bg-white lg:clamp-[rounded-r,16px,24px] shadow-card clamp-[py,60px,90px]">
         <div class="container">
-            <div class="grid grid-cols-12 gap-6 max-lg:grid-cols-1">
-                <div class="xl:col-span-5 lg:clamp-[pt,24px,90px,1024px,1680px] max-xl:lg:col-span-6">
+            <div class="grid grid-cols-12 clamp-[gap,16px,32px,1024px,1680px] max-xxl:grid-cols-1">
+                <div x-data="{
+                      cities: [],
+                      towns: [],
+                      selectedCity: '',
+                      selectedDistrict: '',
+                      async init() {
+                          try {
+                              const response = await fetch('assets/turkiye.json');
+                              this.cities = await response.json();
+                          } catch (error) {
+                              console.error('Error loading cities:', error);
+                          }
+                      },
+                      updateDistricts() {
+                          const city = this.cities.find(c => c.name === this.selectedCity);
+                          this.towns = city ? city.towns : [];
+                          this.selectedDistrict = '';
+                      }
+                    }" class="xxl:col-span-8 xxl:clamp-[pt,24px,90px,1024px,1680px]">
                     <h2 class="text-h3 font-medium clamp-[mb,16px,24px]"
                         data-animation style="--translate-y: -50px; --blur: 4px;">Randevu Al</h2>
                     <p class="clamp-[text,16px,24px] text-text clamp-[mb,24px,50px]"
                        data-animation style="--translate-y: -50px; --blur: 4px;">Dil,Konuşma Bozuklukları ve Ergoterapi Alanında Uluslararası Standartlarda Hizmet Veriyoruz.</p>
                     <form action="#" method="post">
-                        <div class="grid grid-cols-2 clamp-[gap,16px,24px] [&_.form-control]:bg-light/30 max-md:grid-cols-1"
-                             data-animation style="--translate-x: -50px; --blur: 4px;">
-                            {{> partials/components/form/input.hbs
-                                name="firstName"
-                                id="firstName-index"
-                                placeholder="Ad"
-                                required=true
-                            }}
-                            {{> partials/components/form/input.hbs
-                                name="lastName"
-                                id="lastName-index"
-                                placeholder="Soyad"
-                                required=true
-                            }}
-                            {{> partials/components/form/input.hbs
-                                type="tel"
-                                name="phone"
-                                id="phone-index"
-                                placeholder="Telefon"
-                                required=true
-                            }}
-                            {{> partials/components/form/input.hbs
-                                type="email"
-                                name="email"
-                                id="email-index"
-                                placeholder="E-Posta"
-                                required=true
-                            }}
-                            {{> partials/components/form/input.hbs
-                                name="appointment-date"
-                                id="appointment-date-index"
-                                placeholder="Randevu Tarihi"
-                                required=false
-                                class="appointment-date col-span-full"
-                                icon="icon-calendar-clock"
-                            }}
-                            {{> partials/components/form/textarea.hbs
-                                name="message"
-                                id="message-index"
-                                placeholder="Mesajınız"
-                                required=true
-                                class="col-span-full"
-                            }}
-                            <div class="col-span-full flex md:items-center justify-between gap-4 max-md:flex-col">
-                                {{> partials/components/form/acceptance.hbs
-                                    type="checkbox"
-                                    name="kvkk-acceptance"
-                                    id="kvkk-acceptance-index"
-                                    label="<button data-src='#kvkk-popup' data-fancybox>KVKK Metni’ni</button> okudum ve onaylıyorum."
-                                    required=true
-                                }}
-                                {{> partials/components/button.hbs
-                                    type="button"
-                                    color="primary"
-                                    text="Formu Gönder"
-                                    icon="icon-arrow-right"
-                                }}
-                            </div>
+                      <div class="grid grid-cols-6 clamp-[gap,16px,24px] [&_.form-control]:bg-light/30">
+                        <div class="col-span-full mb-2 flex items-center gap-4">
+                          <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Kişisel Bilgiler</p>
+                          <div class="w-full h-px bg-secondary/20"></div>
                         </div>
+                        {{> partials/components/form/input.hbs
+                          name="firstName"
+                          id="firstName-index"
+                          placeholder="Hizmet Alacak Bireyin Adı"
+                          required=true
+                          class="col-span-2 max-lg:col-span-3 max-md:col-span-full"
+                        }}
+                        {{> partials/components/form/input.hbs
+                          name="lastName"
+                          id="lastName-index"
+                          placeholder="Hizmet Alacak Bireyin Soyadı"
+                          required=true
+                          class="col-span-2 max-lg:col-span-3 max-md:col-span-full"
+                        }}
+                        {{> partials/components/form/input.hbs
+                          type="number"
+                          name="age"
+                          id="age-index"
+                          placeholder="Hizmet Alacak Bireyin Yaşı"
+                          required=true
+                          class="col-span-2 max-lg:col-span-full"
+                        }}
+                        <div class="col-span-full mt-4 flex items-center gap-4">
+                          <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Adres Bilgileri</p>
+                          <div class="w-full h-px bg-secondary/20"></div>
+                        </div>
+                        <div class="group/f form-group col-span-3 max-md:col-span-full">
+                          <select name="city" id="city-index" required class="real-form-control form-control disabled:opacity-50 disabled:pointer-events-none" x-model="selectedCity" @change="updateDistricts()">
+                            <option value="" disabled selected>Şehir*</option>
+                            <template x-for="city in cities" :key="city.id">
+                              <option :value="city.name" x-text="city.name"></option>
+                            </template>
+                          </select>
+                          <i class="icon-angle-down select-icon"></i>
+                        </div>
+                        <div class="group/f form-group col-span-3 max-md:col-span-full">
+                          <select name="district" id="district-index" required class="real-form-control form-control disabled:opacity-50 disabled:pointer-events-none" x-model="selectedDistrict" :disabled="!selectedCity">
+                            <option value="" disabled selected>İlçe*</option>
+                            <template x-for="town in towns" :key="town.slug">
+                              <option :value="town.name" x-text="town.name"></option>
+                            </template>
+                          </select>
+                          <i class="icon-angle-down select-icon"></i>
+                        </div>
+                        <div class="col-span-full mt-4 flex items-center gap-4">
+                          <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Hizmet Alınmak İstenen Alan</p>
+                          <div class="w-full h-px bg-secondary/20"></div>
+                        </div>
+                        <div class="col-span-full grid grid-cols-3 clamp-[gap,24px,60px,1024px,1680px] max-lg:grid-cols-2 max-lg:*:last:col-span-full max-md:*:col-span-full max-md:max-h-600 max-md:overflow-y-auto">
+                          {{#each header.nav.1.subMenu.items as |sub|}}
+                            <div>
+                              <div class="mb-4">
+                                <p class="clamp-[text,16px,18px] leading-relaxed font-medium text-black/80 lg:mb-2">{{sub.title}}</p>
+                                <span class="block w-51 h-0.5 bg-primary"></span>
+                              </div>
+                              <div>
+                                <ul class="flex flex-col gap-2.5">
+                                  {{#each sub.subItems as |subItem|}}
+                                    <li class="group/f flex clamp-[gap,8px,10px]">
+                                      <div class="size-5 shrink-0 relative flex-center">
+                                        <input type="checkbox" name="service-category-{{@../index}}[]" id="service-{{@../index}}-{{@index}}-index" class="peer size-full shrink-0 border border-secondary/20 rounded-0.75 transition-colors duration-300 checked:border-primary! hover:border-primary/50" />
+                                        <span class="absolute-center size-5/12 bg-primary rounded-0.75 pointer-events-none transition-opacity duration-300 peer-not-checked:opacity-0"></span>
+                                      </div>
+                                      <label for="service-{{@../index}}-{{@index}}" class="clamp-[text,16px,18px] leading-tight text-dark/60 lg:transition-colors lg:duration-300 lg:hover:text-dark">{{subItem.title}}</label>
+                                    </li>
+                                  {{/each}}
+                                </ul>
+                              </div>
+                            </div>
+                          {{/each}}
+                        </div>
+                        <div class="col-span-full mt-4 flex items-center gap-4">
+                          <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Danışan Detayları</p>
+                          <div class="w-full h-px bg-secondary/20"></div>
+                        </div>
+                        {{> partials/components/form/textarea.hbs
+                          name="message"
+                          id="message-index"
+                          placeholder="Mesajınız"
+                          required=true
+                          class="col-span-3 max-lg:col-span-full"
+                        }}
+                        <div x-data="{
+                            hasFile: false,
+                            changeFile(el) {
+                              if (el.files.length && el.files.length > 0) {
+                                $refs.fileName.textContent = el.files[0].name;
+                                this.hasFile = true;
+                              } else {
+                                $refs.fileName.textContent = 'Belgeler / Raporlar';
+                                this.hasFile = false;
+                              }
+                            }
+                          }" class="group/file min-h-106 col-span-3 bg-light/30 border border-dashed border-secondary/20 rounded-3 flex-center flex-col gap-1.5 p-4 relative cursor-pointer transition-colors duration-300 lg:hover:border-primary/50 [&.has-file]:border-primary max-lg:col-span-full" :class="{ 'has-file': hasFile }">
+                          <input type="file" name="file" class="absolute-full z-3 opacity-0 cursor-pointer" @change="changeFile($el)">
+                          <div class="flex items-center gap-2">
+                            <p id="file-name-index" x-ref="fileName" class="text-body font-medium text-dark">Belgeler / Raporlar</p>
+                            <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-6">
+                              <path d="M11.25 1.5C7.10625 1.5 3.75 4.85625 3.75 9C3.75 9.22969 3.75937 9.45938 3.78281 9.68438C1.54219 10.7813 0 13.0828 0 15.75C0 19.4766 3.02344 22.5 6.75 22.5H21C24.3141 22.5 27 19.8141 27 16.5C27 14.1609 25.6641 12.1406 23.7141 11.1469C23.9016 10.5891 24 9.99375 24 9.375C24 6.26719 21.4828 3.75 18.375 3.75C17.8359 3.75 17.3109 3.825 16.8141 3.97031C15.4406 2.45625 13.4578 1.5 11.25 1.5ZM6 9C6 6.09844 8.34844 3.75 11.25 3.75C13.0172 3.75 14.5781 4.62187 15.5297 5.95781C15.8437 6.40312 16.4344 6.55781 16.9266 6.32344C17.3625 6.11719 17.85 6 18.3703 6C20.2359 6 21.7453 7.50938 21.7453 9.375C21.7453 10.0359 21.5578 10.65 21.2297 11.1703C21.0375 11.475 21.0047 11.8547 21.1359 12.1875C21.2672 12.5203 21.5578 12.7734 21.9094 12.8578C23.5406 13.2656 24.7453 14.7422 24.7453 16.4953C24.7453 18.5672 23.0672 20.2453 20.9953 20.2453H6.74531C4.26094 20.2453 2.24531 18.2297 2.24531 15.7453C2.24531 13.7437 3.55312 12.0422 5.36719 11.4609C5.92031 11.2828 6.24844 10.7109 6.12188 10.1437C6.0375 9.77344 5.99531 9.38906 5.99531 8.99531L6 9ZM14.2969 9.32812C13.8563 8.8875 13.1438 8.8875 12.7078 9.32812L9.70781 12.3281C9.26719 12.7687 9.26719 13.4812 9.70781 13.9172C10.1484 14.3531 10.8609 14.3578 11.2969 13.9172L12.375 12.8391V16.875C12.375 17.4984 12.8766 18 13.5 18C14.1234 18 14.625 17.4984 14.625 16.875V12.8391L15.7031 13.9172C16.1437 14.3578 16.8562 14.3578 17.2922 13.9172C17.7281 13.4766 17.7328 12.7641 17.2922 12.3281L14.2922 9.32812H14.2969Z" fill="#1E1E1E"></path>
+                            </svg>
+                          </div>
+                          <p class="text-text text-center">Yüklemek için tıklayın. Sadece pdf, jpg ve maksimum 5 mb</p>
+                        </div>
+                        <div class="col-span-full mt-4 flex items-center gap-4">
+                          <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Ebeveny Bilgileri</p>
+                          <div class="w-full h-px bg-secondary/20"></div>
+                        </div>
+                        {{> partials/components/form/input.hbs
+                          name="firstName"
+                          id="parentFirstName-index"
+                          placeholder="Ebeveyn / Veli Adı"
+                          required=true
+                          class="col-span-3 max-md:col-span-full"
+                        }}
+                        {{> partials/components/form/input.hbs
+                          name="lastName"
+                          id="parentLastName-index"
+                          placeholder="Ebeveyn / Veli Soyadı"
+                          required=true
+                          class="col-span-3 max-md:col-span-full"
+                        }}
+                        {{> partials/components/form/input.hbs
+                          type="tel"
+                          name="phone"
+                          id="phone-index"
+                          placeholder="Ebeveyn / Veli Telefon"
+                          required=true
+                          class="col-span-3 max-md:col-span-full"
+                        }}
+                        {{> partials/components/form/select.hbs
+                          name="parentInfo"
+                          id="parentInfo-index"
+                          placeholder="Ebeveyn / Veli Yakınlık Bilgisi"
+                          placeholderSelected=true
+                          options=(array (object value="father" text="Baba") (object value="mother" text="Anne") (object value="sibling" text="Kardeş") (object value="other" text="Diğer"))
+                          required=true
+                          class="col-span-3 max-md:col-span-full"
+                        }}
+                        <div class="col-span-full flex md:items-center justify-between gap-4 mt-4 max-md:flex-col">
+                          {{> partials/components/form/acceptance.hbs
+                            type="checkbox"
+                            name="kvkk-acceptance"
+                            id="kvkk-acceptance-index"
+                            label="<button data-src='#kvkk-popup' data-fancybox>KVKK Metni’ni</button> okudum ve onaylıyorum."
+                            required=true
+                          }}
+                          {{> partials/components/button.hbs
+                            type="button"
+                            color="primary"
+                            text="Formu Gönder"
+                            icon="icon-arrow-right"
+                            class="max-md:w-full"
+                          }}
+                        </div>
+                      </div>
                     </form>
                 </div>
-                <div class="col-span-1 max-xl:hidden"></div>
-                <div class="lg:col-span-6">
-                    <div class="w-[calc(100%+var(--left))] h-full origin-right"
-                         data-animation style="--blur: 4px; --scale: 0.95">
-                        <img src="assets/image/index/image-6.jpg" alt="" loading="lazy" width="924" height="746" class="full-cover clamp-[rounded-l,16px,24px]">
+                <div class="xxl:col-span-4">
+                    <div class="lg:transiton-all xxl:duration-300 xxl:sticky xxl:top-7.5 xxl:group-[&.scrolling-up]/body:top-[calc(var(--headerHeight)+30px)]">
+                      <div class="w-[calc(100%+var(--left))] origin-right max-[1652px]:[--left:var(--padding)]!"
+                           data-animation style="--blur: 4px; --scale: 0.95; --left: calc(((100vw - var(--container)) / 2) - var(--padding));">
+                          <img src="assets/image/index/image-6.jpg" alt="" loading="lazy" width="924" height="746" class="w-full h-auto clamp-[rounded-l,16px,24px]">
+                      </div>
                     </div>
                 </div>
             </div>
