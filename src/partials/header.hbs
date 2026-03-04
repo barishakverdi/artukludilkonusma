@@ -192,8 +192,8 @@
         <form action="#" method="post">
             <div class="grid grid-cols-6 clamp-[gap,16px,24px]">
                 <div class="col-span-full mb-2 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Kişisel Bilgiler</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Kişisel Bilgiler</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 {{> partials/components/form/input.hbs
                     name="firstName"
@@ -218,8 +218,8 @@
                     class="col-span-2 max-lg:col-span-full"
                 }}
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Adres Bilgileri</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Adres Bilgileri</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="group/f form-group col-span-3 max-md:col-span-full">
                     <select name="city" id="city" required class="real-form-control form-control disabled:opacity-50 disabled:pointer-events-none" x-model="selectedCity" @change="updateDistricts()">
@@ -240,8 +240,8 @@
                     <i class="icon-angle-down select-icon"></i>
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Hizmet Alınmak İstenen Alan</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Hizmet Alınmak İstenen Alan</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="col-span-full grid grid-cols-3 clamp-[gap,24px,60px,1024px,1680px] max-lg:grid-cols-2 max-lg:*:last:col-span-full max-md:*:col-span-full max-md:max-h-600 max-md:overflow-y-auto">
                   {{#each header.nav.1.subMenu.items as |sub|}}
@@ -267,8 +267,8 @@
                   {{/each}}
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Danışan Detayları</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Danışan Detayları</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 {{> partials/components/form/textarea.hbs
                     name="message"
@@ -299,8 +299,8 @@
                   <p class="text-text text-center">Yüklemek için tıklayın. Sadece pdf, jpg ve maksimum 5 mb</p>
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Ebeveny Bilgileri</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Ebeveny Bilgileri</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 {{> partials/components/form/input.hbs
                     name="firstName"

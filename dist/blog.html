@@ -16,7 +16,7 @@
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
     <meta name="theme-color" content="#ff6600">
     <link rel="preload" href="assets/font/GoogleSansFlex-VariableFont_GRAD,ROND,opsz,slnt,wdth,wght.woff2" as="font" type="font/woff2" crossorigin>
-<!--    <link rel="stylesheet" href="../assets/style/style.css?v=1772659476413">-->
+<!--    <link rel="stylesheet" href="../assets/style/style.css?v=1772662284887">-->
     <script>
         /* to prevent Firefox FOUC, this must be here */
         let FF_FOUC_FIX;
@@ -38,8 +38,8 @@
             })
         })
     </script>
-  <script type="module" crossorigin src="assets/script/script.js?v=1772659476413"></script>
-  <link rel="stylesheet" crossorigin href="assets/style/app.css?v=1772659476413">
+  <script type="module" crossorigin src="assets/script/script.js?v=1772662284887"></script>
+  <link rel="stylesheet" crossorigin href="assets/style/app.css?v=1772662284887">
 </head>
 <body class="group/body variable-from-80 variable-to-115 [--headerHeight:var(--variable)] overflow-x-hidden" style="visibility: hidden"
     x-init="$store.data.checkDevice()" @resize.window="$store.data.checkDevice()" :class="{ 'overflow-hidden': $store.data.menuOpen || $store.data.dropdownMenuOpen || $store.data.megaMenuOpen }" @keyup.esc.window="$store.data.menuOpen = false">
@@ -397,8 +397,8 @@
         <form action="#" method="post">
             <div class="grid grid-cols-6 clamp-[gap,16px,24px]">
                 <div class="col-span-full mb-2 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Kişisel Bilgiler</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Kişisel Bilgiler</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="group/f form-group col-span-2 max-lg:col-span-3 max-md:col-span-full">
                    <input type="text" name="firstName" id="firstName" placeholder="Hizmet Alacak Bireyin Adı *"  required class="real-form-control form-control">
@@ -407,8 +407,8 @@
                 </div>                <div class="group/f form-group col-span-2 max-lg:col-span-full">
                    <input type="number" name="age" id="age" placeholder="Hizmet Alacak Bireyin Yaşı *"  required class="real-form-control form-control">
                 </div>                <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Adres Bilgileri</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Adres Bilgileri</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="group/f form-group col-span-3 max-md:col-span-full">
                     <select name="city" id="city" required class="real-form-control form-control disabled:opacity-50 disabled:pointer-events-none" x-model="selectedCity" @change="updateDistricts()">
@@ -429,8 +429,8 @@
                     <i class="icon-angle-down select-icon"></i>
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Hizmet Alınmak İstenen Alan</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Hizmet Alınmak İstenen Alan</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="col-span-full grid grid-cols-3 clamp-[gap,24px,60px,1024px,1680px] max-lg:grid-cols-2 max-lg:*:last:col-span-full max-md:*:col-span-full max-md:max-h-600 max-md:overflow-y-auto">
                     <div>
@@ -654,8 +654,8 @@
                     </div>
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Danışan Detayları</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Danışan Detayları</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="form-group col-span-3 max-lg:col-span-full">
                    <textarea name="message" id="message" placeholder="Mesajınız *"  required rows="4" class="real-form-control form-control"></textarea>
@@ -681,8 +681,8 @@
                   <p class="text-text text-center">Yüklemek için tıklayın. Sadece pdf, jpg ve maksimum 5 mb</p>
                 </div>
                 <div class="col-span-full mt-4 flex items-center gap-4">
-                  <p class="clamp-[text,20px,24px] font-medium whitespace-nowrap">Ebeveny Bilgileri</p>
-                  <div class="w-full h-px bg-secondary/20"></div>
+                  <p class="clamp-[text,20px,24px] font-medium lg:whitespace-nowrap">Ebeveny Bilgileri</p>
+                  <div class="w-full h-px bg-secondary/20 max-lg:hidden"></div>
                 </div>
                 <div class="group/f form-group col-span-3 max-md:col-span-full">
                    <input type="text" name="firstName" id="parentFirstName" placeholder="Ebeveyn / Veli Adı *"  required class="real-form-control form-control">
